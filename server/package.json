@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "unmig": "npx sequelize db:migrate:undo:all",
+    "mig": "npx sequelize db:migrate",
+    "seed": "npx sequelize db:seed:all",
+    "unseed": "npx sequelize db:seed:undo:all"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +23,7 @@
     "express-session": "^1.17.2",
     "express-validator": "^6.14.0",
     "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.4",
     "nodemon": "^2.0.15",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",

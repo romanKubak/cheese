@@ -1,0 +1,21 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  border: solid 1px;
+}
+
+.avatar {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  box-shadow: 4px -2px 29px 26px rgba(34, 60, 80, 0.2);
+}
+.logo {
+  width: 200px;
+  height: 200px;
+}
