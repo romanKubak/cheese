@@ -24,6 +24,7 @@ export default function Header() {
 
   const logout = async () => {
     dispatch(logoutUser())
+    navigate('/')
   }
 
 
@@ -61,7 +62,7 @@ export default function Header() {
             (
             <>
               <span style={{ marginRight: '20px', fontSize: '20px' }}>Счет : {score}</span>
-              <Link to='/profile' type='button' style={{ marginRight: '20px' }} className="btn btn-primary">Профиль</Link>
+              <Link to={`/profile/${user.id}`} type='button' style={{ marginRight: '20px' }} className="btn btn-primary">Профиль</Link>
               <button type='button' className="btn btn-primary" onClick={() => logout()}>Выйти</button>
             </>
             )
