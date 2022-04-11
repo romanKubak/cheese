@@ -3,4 +3,5 @@ export const initState = {
   score: 0, 
   error: '',
   errorReg: '',
+  isSeller: false
 };

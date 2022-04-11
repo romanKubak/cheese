@@ -17,6 +17,10 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
+      isSeller: {
+        type: Sequelize.BOOLEAN
+      },
+
       score: {
         type: Sequelize.INTEGER
       },

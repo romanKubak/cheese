@@ -8,5 +8,6 @@ module.exports = class UserDto {
     this.id = model.id
     this.score = model.score
     this.name = model.name
+    this.isSeller = model.isSeller
   }
 }
