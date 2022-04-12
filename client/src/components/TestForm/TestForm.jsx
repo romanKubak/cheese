@@ -18,14 +18,18 @@ const formItemLayout = {
 
 export default function TestForm() {
   
-  const [img, setImg] = useState('')
-  console.log('img --->', img);
-  const [avatar, setAvatar] = useState('')
+  
   
   const dispatch = useDispatch();
 
+
+  const [name, setName] = useState('')
+  const [description, setDescription] = useState('')
+  const [price, setPrice] = useState('')
+  const [file, setFile] = useState(null)
+
+
   const normFile = (e) => {
-    setImg(e.file)
     console.log('Upload event:', e);
   
     if (Array.isArray(e)) {
@@ -35,10 +39,17 @@ export default function TestForm() {
     return e && e.fileList;
   };
 
-  const onFinish = (values) => {
-    // const data = new FormData()
-    // data.append('avatar', img)
-    dispatch(addProduct(values))
+  const selectFile = e => {
+    setFile(e.target.files[0])
+  }
+
+  const onFinish = () => {
+    const formData = new FormData()
+        formData.append('name', name)
+        formData.append('description', description)
+        formData.append('price', price)
+        formData.append('img', file)
+    dispatch(addProduct(formData))
   }
 
   return (
@@ -55,24 +66,28 @@ export default function TestForm() {
     >
 
         <Form.Item
-          label="Title"
-          name="title"
+          label="Name"
+          name="name"
+          value={name}
+          onChange={e => setName(e.target.value)}
           rules={[
             {
               required: true,
-              message: 'Введите titile',
+              message: 'Введите name',
             },
           ]}
         >
           <Input />
         </Form.Item>
         <Form.Item
-          label="Body"
-          name="body"
+          label="Description"
+          name="description"
+          value={description}
+          onChange={e => setDescription(e.target.value)}
           rules={[
             {
               required: true,
-              message: 'Введите body',
+              message: 'Введите description',
             },
           ]}
         >
@@ -81,6 +96,22 @@ export default function TestForm() {
         <Form.Item
           label="Price"
           name="price"
+          value={price}
+          onChange={e => setPrice(e.target.value)}
+          rules={[
+            {
+              required: true,
+              message: 'Введите price',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+                <Form.Item
+          label="Price"
+          name="price"
+          value={price}
+          onChange={e => setPrice(e.target.value)}
           rules={[
             {
               required: true,
@@ -92,72 +123,18 @@ export default function TestForm() {
         </Form.Item>
 
       <Form.Item
-        name="category"
-        label="Категория"
-        rules={[
-          {
-            required: true,
-            message: 'Выберете категорию',
-            type: 'array',
-          },
-        ]}
-      >
-        <Select mode="multiple" placeholder="Выберете категорию по кайфу">
-          <Option value="red">крутой сыр</Option>
-          <Option value="green">зеленный сыр</Option>
-          <Option value="blue">вонючий сыр</Option>
-        </Select>
-      </Form.Item>
-
-      <Form.Item label="InputNumber">
-        <Form.Item name="input-number" noStyle>
-          <InputNumber min={100} max={10000} />
-        </Form.Item>
-        <span className="ant-form-text"> цена</span>
-      </Form.Item>
-
-      <Form.Item name="switch" label="Switch" valuePropName="checked">
-        <Switch />
-      </Form.Item>
-
-      <Form.Item name="slider" label="Slider">
-        <Slider
-          marks={{
-            0: 'A',
-            20: 'B',
-            40: 'C',
-            60: 'D',
-            80: 'E',
-            100: 'F',
-          }}
-        />
-      </Form.Item>
-
-
-
-      <Form.Item
+        type="file"
+        onChange={selectFile}
         name="images"
         label="Upload"
         valuePropName="fileList"
         getValueFromEvent={normFile}
-        extra="longgggggggggggggggggggggggggggggggggg"
+        extra="Добавь фоточку"
       >
         <Upload name="logo" listType="picture">
-          <Button icon={<UploadOutlined />}>Click to upload</Button>
+          <Button icon={<UploadOutlined /> } >Жмякай</Button>
         </Upload>
       </Form.Item>
-
-      {/* <Form.Item label="Dragger">
-        <Form.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
-          <Upload.Dragger name="files" action="/upload.do">
-            <p className="ant-upload-drag-icon">
-              <InboxOutlined />
-            </p>
-            <p className="ant-upload-text">Click or drag file to this area to upload</p>
-            <p className="ant-upload-hint">Support for a single or bulk upload.</p>
-          </Upload.Dragger>
-        </Form.Item>
-      </Form.Item> */}
 
       <Form.Item
         wrapperCol={{
