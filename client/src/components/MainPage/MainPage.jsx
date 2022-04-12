@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React,{ useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {getProduct} from '../../redux/actions/productAC'
+import {getProduct} from '../../redux/actions/productAc'
 import Product from '../Product/Product'
 
 export default function MainPage() {

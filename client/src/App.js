@@ -28,7 +28,7 @@ function App() {
       localStorage.setItem('token', response.data.accessToken);
       dispatch({type: 'SET_USER', payload: response.data.user});
       dispatch({type: 'SET_SELLER', payload: response.data.user.isSeller})
-      dispatch({type: 'GET_SCORE', payload: response.data.user.score});
+      
     } catch (e) {
       console.log(e.response?.data?.message);
     } 

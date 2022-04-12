@@ -9,7 +9,7 @@ const errorMiddleware = require('./middleware/errorMiddleware')
 const {User} = require('./db/models')
 
 
-const gameRouter = require('./router/gameRoutes');
+const productRoutes = require('./router/productRoutes');
 const uploadPhotoRouter = require('./router/uploadPhotoRouters')
 
 
@@ -28,19 +28,9 @@ app.use(cors(
 
 app.use('/api', router);
 app.use('/', uploadPhotoRouter)
-app.use('/product', gameRouter);
+app.use('/product', productRoutes);
 
 
-app.post('/score/:id', async(req, res) => {
-const id = Number(req.params.id)
-  try {
-    const user = await User.findOne({where: {id}})
-   await user.update({score:req.body.score})
-   res.json(user)
-  } catch (error) {
-    console.log(error);
-  }
-})
 
 //Подключаем мидлвар ошибок, важно - он должен быть в самом конце всех подключений
 app.use(errorMiddleware)
