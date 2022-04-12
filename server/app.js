@@ -8,8 +8,10 @@ const router = require('./router/index')
 const errorMiddleware = require('./middleware/errorMiddleware')
 const {User} = require('./db/models')
 
+
 const gameRouter = require('./router/gameRoutes');
 const uploadPhotoRouter = require('./router/uploadPhotoRouters')
+
 
 const PORT = process.env.PORT || 3002;
 const app = express()
@@ -25,8 +27,9 @@ app.use(cors(
 ))
 
 app.use('/api', router);
-app.use('/game', gameRouter);
 app.use('/', uploadPhotoRouter)
+app.use('/product', gameRouter);
+
 
 app.post('/score/:id', async(req, res) => {
 const id = Number(req.params.id)

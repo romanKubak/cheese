@@ -8,6 +8,8 @@ import Header from './components/Header/Header';
 import SignUp from './components/SignUp/SignUp';
 import SignIn from './components/SignIn/SignIn';
 import Profile from './components/Profile/Profile';
+import ShoppingCart from './components/ShoppingCart/ShoppingCart';
+import MainPage from './components/MainPage/MainPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -37,8 +39,11 @@ function App() {
       <Header/>
       <Routes>
         <Route path='/signup' element={ <SignUp /> } />
+        <Route path='/' element={ <MainPage /> } />
+        
         <Route path='/signin' element={ <SignIn /> } />
         <Route path='/profile/:id' element={< Profile/> } /> 
+        <Route path='/cart/:id' element={< ShoppingCart/> } /> 
         {/* {user.email? <Route path='/' element={ <Game /> } /> : <Route path='/' element={ <SignIn /> } />} */}
       </Routes>
     </div>
