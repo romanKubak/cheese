@@ -12,7 +12,6 @@ export const regUser = (values) => async(dispatch) => {
 
       localStorage.setItem('token', data.data.accessToken);
       dispatch(setUser(data.data.user));
-      dispatch(setScore(data.data.user.score));
       dispatch(setErrorReg(''))
       dispatch(setSeller(data.data.user.isSeller))
 
@@ -37,9 +36,6 @@ const setSeller = (data) => {
   return {type: 'SET_SELLER', payload: data}
 }
 
-export const setScore = (data) => {
-  return {type: 'GET_SCORE', payload: data}
-}
 
 export const setError = (error) => {
   return {type: 'SET_ERROR', payload: error}
@@ -54,7 +50,6 @@ export const logUser = (values) => async(dispatch) =>{
       localStorage.setItem('token', data.data.accessToken);
       dispatch(setUser(data.data.user));
       dispatch(setSeller(data.data.user.isSeller))
-      dispatch(setScore(data.data.user.score));
       dispatch(setError(''))
     }
   })
