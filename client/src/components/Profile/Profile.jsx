@@ -7,6 +7,7 @@ import {useParams} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react';
 import AddProductForm from '../AddProductForm/AddProductForm';
+import TestForm from '../TestForm/TestForm';
 
 function Profile() {
     
@@ -34,6 +35,7 @@ const click = ()=> {
       ? <AddProductForm />
       : null
       }
+      <TestForm />
    
       </>
     )

@@ -14,27 +14,36 @@ const Input = styled('input')({
 
 export default function AddProductForm() {
 
-  const [img, setImg] = useState(null)
-  const [avatar, setAvatar] = useState(null)
-  console.log('img -->', img)
+  const [img, setImg] = useState('')
+  const [avatar, setAvatar] = useState('')
+  // console.log('img -->', img)
   console.log('avatar --> ', avatar);
 
   const sendFile = useCallback( async () => {
     const data = new FormData()
     data.append('avatar', img)
+    const user = {
+      name: 'roman',
+      email: 'pass'
+    }
+    // data.append('user', {...user})
+    console.log('data ----> ', data);
 
-    await axios.post('http://localhost:3001/upload', data, {
+    await axios.post('http://localhost:3001/upload', {data, user}, {
       headers: {
-        'content-type': 'miltipart/form-data'
+        'content-type': 'multipart/form-data'
       }
     })
     .then(res => {
       const path = res.data.path 
       const slicePath = path.slice(16)
+      console.log('slicePath---->', slicePath);
       setAvatar(slicePath)})
   }, [img])
 
   const imageHandler = (e) => {
+    e.preventDefault()
+    console.log('e.target.files[0]', e.target.files[0]);
     setImg(e.target.files[0])
     const reader = new FileReader();
     reader.onload = () => {
@@ -44,11 +53,13 @@ export default function AddProductForm() {
     }
     reader.readAsDataURL(e.target.files[0])
   };
+
+  
   return (
     <div className={styles.main}>
       <div className={styles.avatar}>
         {
-          avatar 
+          avatar.length 
             ? <img className={styles.logo} src={`${avatar}`} alt='avatar' />
             : <img className={styles.logo} src={`${img}`} alt='avatar' />
         }
