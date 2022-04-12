@@ -3,5 +3,7 @@ export const initState = {
   score: 0, 
   error: '',
   errorReg: '',
-  isSeller: false
+  isSeller: false,
+  cart: [],
+  product: [],
 };

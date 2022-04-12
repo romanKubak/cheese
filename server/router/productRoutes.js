@@ -1,17 +1,17 @@
 const router = require('express').Router();
-const { Category, Question } = require('../db/models');
+const { Product } = require('../db/models');
 
-router.post('/', async (req, res) => {
+router.get('/all', async (req, res) => {
   try {
-    const categories = await Category.findAll({raw: true});
-    res.json(categories);
+    const products = await Product.findAll();
+    res.json(products);
   } catch (err) {
     console.log(err);
     res.sendStatus(500);
   }
 });
 
-router.post('/question', async (req, res) => {
+router.post('/cart/:id', async (req, res) => {
   try {
     const { id } = req.body;
     const questions = await Question.findAll({ where: {category_id: id }, raw: true });
