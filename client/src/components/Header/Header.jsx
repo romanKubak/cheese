@@ -8,6 +8,9 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
 import SvgIcon from '@mui/material/SvgIcon';
+import LogoutIcon from '@mui/icons-material/Logout';
+import PersonIcon from '@mui/icons-material/Person';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import { useNavigate } from 'react-router-dom'
 import { logoutUser } from '../../redux/actions/userAC';
@@ -17,13 +20,18 @@ import { useDispatch, useSelector } from 'react-redux';
 // dispatch({type: 'SET_USER', payload: user})
 export default function Header() {
   const user = useSelector(state => state.user);
-  const score = useSelector(store => store.score)
+  const isSeller =useSelector(state => state.isSeller)
   const dispatch = useDispatch();
   const navigate = useNavigate()
 
 
   const logout = async () => {
     dispatch(logoutUser())
+    navigate('/')
+  }
+
+  const profile = () => {
+    navigate(`/profile/${user.id}`)
   }
 
 
@@ -50,20 +58,23 @@ export default function Header() {
           >
 
 
-            <HomeIcon fontSize="large" onClick={() => navigate('/')} />
+            <HomeIcon  onClick={() => navigate('/')} />
 
           </Box>
 
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Своя Игра
+           Сыр
           </Typography>
           {user.email ?
             (
             <>
-              <span style={{ marginRight: '20px', fontSize: '20px' }}>Счет : {score}</span>
-              <Link to='/profile' type='button' style={{ marginRight: '20px' }} className="btn btn-primary">Профиль</Link>
-              <button type='button' className="btn btn-primary" onClick={() => logout()}>Выйти</button>
-            </>
+              {!isSeller ?
+              (<ShoppingCartIcon type='button' style={{ marginRight: '20px' }} onClick={() => navigate(`/cart/${user.id}`)}/>) :
+              null
+              }
+              <PersonIcon type='button' style={{ marginRight: '20px' }}onClick={() =>profile()}/>
+              <LogoutIcon  type='button'  onClick={() => logout()}/>
+             </>
             )
             :
             (<> 

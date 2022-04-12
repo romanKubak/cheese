@@ -1,6 +1,7 @@
 const { registration, login, logout, refresh, getAllUsers } = require('../service/userService')
 const { validationResult } = require('express-validator')
 const ApiError = require('../exceptions/apiError')
+const {User} = require('../db/models')
 
 
 const registrationUser = async (req, res, next) => {
@@ -72,5 +73,16 @@ const getUsers = async (req, res, next) => {
   }
 }
 
+const seller = async (req, res, next) => {
+  const id = req.params.id
+  try {
+    const user = await User.findOne({where: {id}})
+    await user.update({isSeller: true})
+    res.sendStatus(200)
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-module.exports = { registrationUser, loginUser, logoutUser, getUsers, refreshUser }
+
+module.exports = { registrationUser, loginUser, logoutUser, getUsers, refreshUser, seller}
