@@ -12,8 +12,13 @@ module.exports = (sequelize, DataTypes) => {
     static associate({Token, Product, Basket, Order}) {
       this.hasMany(Token, {foreignKey: "user_id"});
       this.hasMany(Product, {foreignKey: "seller_id"});
-      this.belongsTo(Basket, {foreignKey: "user_id"});
-      this.belongsTo(Order, {foreignKey: "user_id"});
+      
+      this.belongsToMany(Product, {
+				through: Basket,
+				foreignKey: 'user_id',
+				otherKey: 'product_id',
+			});
+    
     }
   }
   User.init({

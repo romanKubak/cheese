@@ -1,5 +1,4 @@
-import $api from '../../http/index'
-import axios from 'axios'
+import axios from "axios"
 
 export const addProduct = (values) => async(dispatch) =>{
   console.log('values ---> ', values)
@@ -9,4 +8,16 @@ export const addProduct = (values) => async(dispatch) =>{
   .then((data) => {
     console.log('data --> ', data);
   })
+}
+
+export const setProduct = (product) => {
+  return {type: 'SET_PRODUCT', payload: product}
+}
+
+export const getProduct = () => async(dispatch) =>{
+  axios.get('http://localhost:3001/product/all')
+  .then((response) => {
+   dispatch(setProduct(response.data))
+  })
+
 }
