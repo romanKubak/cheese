@@ -13,7 +13,7 @@ class AddOneProductController {
   
       const product = await Product
         .create({name, description, price, img: fileName, category_id: thisCategory.id, seller_id: userId});
-       return res.json(product)    
+      return res.json(product)
     } catch (error) {
       console.log(error);
     }
