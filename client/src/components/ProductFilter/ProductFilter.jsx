@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import {getFilterProducts} from '../../redux/actions/productAc'
 import {getProduct} from '../../redux/actions/productAc'
 
 export default function ProductFilter() {
   const [input, setInput] = useState('');
   const dispatch = useDispatch();
- 
+  const product = useSelector(state => state.product)
+  
+  const filteredProducts = product.filter(el=> el.name.toLowerCase().includes(input.toLowerCase()))
+  
 
 
   useEffect(() => {
     if (input.length > 0) {
-      dispatch(getFilterProducts(input));
+      dispatch(getFilterProducts(filteredProducts));
     }else{
       dispatch(getProduct())
     }
