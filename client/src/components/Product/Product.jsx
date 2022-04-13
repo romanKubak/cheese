@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from './style.module.css'
+import {addToCart} from '../../redux/actions/cartAC'
+import {useParams} from 'react-router-dom'
+import {useDispatch, useSelector} from 'react-redux'
 
 export default function Product({product}) {
+ const user = useSelector(store => store.user)
+  const dispatch = useDispatch()
+ const add = ()=> {
 
-  console.log('product.img ---> ', product.img);
+  dispatch(addToCart({userID:user.id, productID:product.id}))
+ }
+
+
   return (
     <div className={styles.main_box}>
       <div className="card" style={{width: '18rem'}}>
@@ -14,6 +23,7 @@ export default function Product({product}) {
         </div>
         <ul className="list-group list-group-flush">
           <li className="list-group-item">{product.price}</li>
+         <button className="btn btn-primary" onClick={()=> add()}>Добавить в корзину</button>
         </ul>
       </div>
     </div>
