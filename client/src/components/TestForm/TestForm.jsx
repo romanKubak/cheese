@@ -17,7 +17,7 @@ const formItemLayout = {
 };
 
 
-export default function TestForm() {
+export default function TestForm({showFrom}) {
   
   
   
@@ -62,6 +62,7 @@ export default function TestForm() {
         formData.append('userId', userId)
         formData.append('img', file)
     dispatch(addProduct(formData))
+    showFrom()
   }
 
   return (

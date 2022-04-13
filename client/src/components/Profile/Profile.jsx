@@ -33,7 +33,7 @@ function Profile() {
           </>
       }
       {showForm 
-      ? <TestForm />
+      ? <TestForm showFrom={showFrom}/>
       : null
       }
       </>
