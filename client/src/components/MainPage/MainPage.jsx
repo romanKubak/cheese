@@ -3,6 +3,7 @@ import React,{ useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {getProduct} from '../../redux/actions/productAc'
 import Product from '../Product/Product'
+import ProductFilter from '../ProductFilter/ProductFilter'
 import styles from './style.module.css'
 
 export default function MainPage() {
@@ -15,7 +16,13 @@ useEffect(() => {
 
   return (
     <div className={styles.main_box}>
-      {product.length ? product.map(product => <Product key={product.id} product={product}/>): null
+      
+      <ProductFilter/>
+      {product.length ?
+      <>
+       {product.map(product => <Product key={product.id} product={product}/>)}
+       </>
+       : <h3>Не найдено ни одного товара</h3>
       
       }
     </div>
