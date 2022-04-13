@@ -7,10 +7,9 @@ import {useDispatch, useSelector} from 'react-redux'
 export default function Product({product}) {
  const user = useSelector(store => store.user)
   const dispatch = useDispatch()
- const add = ()=> {
-
-  dispatch(addToCart({userID:user.id, productID:product.id}))
- }
+  const add = ()=> {
+    dispatch(addToCart({userID:user.id, productID:product.id}))
+  }
 
 
   return (

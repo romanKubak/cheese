@@ -9,7 +9,8 @@ export const cartReducer = (state = initState, action)=>{
     case 'ADD_CART':
       return [...state, payload]
     case 'REMOVE_CART':
-      return [...state, payload]
+      console.log('state', state);
+      return state.filter(el => el.id !== payload)
   
     default:
       return state;
