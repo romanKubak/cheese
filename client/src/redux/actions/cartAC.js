@@ -27,3 +27,16 @@ export const getCart = (id) => async(dispatch) => {
   
   })
   }
+
+
+export const deleteOneProdCart = (productId) => {
+  return {type: 'REMOVE_CART', payload: productId}
+}
+
+export const deleteOneFromCart = (productId) => async(dispatch) =>{
+  console.log('productId', productId);
+  axios.post(`http://localhost:3001/product/${productId}`)
+    .then((data) => {
+      dispatch(deleteOneProdCart(productId))
+    })
+}

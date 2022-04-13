@@ -48,4 +48,16 @@ router.post("/cart/:id", async (req, res) => {
   }
 });
 
+router.post('/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+    console.log('id-----', id);
+    const oneProductFromCart = await Basket.findOne({ where: { product_id: id }})
+    await oneProductFromCart.destroy()
+    res.sendStatus(200)
+  } catch (error) {
+    
+  }
+})
+
 module.exports = router;
