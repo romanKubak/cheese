@@ -6,11 +6,20 @@ import {useDispatch, useSelector} from 'react-redux'
 
 export default function Product({product}) {
  const user = useSelector(store => store.user)
+
+  const cartProducts = useSelector(store => store.cart)
   const dispatch = useDispatch()
   const add = ()=> {
     dispatch(addToCart({userID:user.id, productID:product.id}))
   }
 
+
+  const repeatProd = []
+  cartProducts.map((el) => {
+    if(el.id === product.id) {
+      repeatProd.push(el)
+    }
+  })
 
   return (
     <div className={styles.main_box}>
@@ -22,7 +31,11 @@ export default function Product({product}) {
         </div>
         <ul className="list-group list-group-flush">
           <li className="list-group-item">{product.price}</li>
-         <button className="btn btn-primary" onClick={()=> add()}>Добавить в корзину</button>
+          {!repeatProd.length 
+            ? <button className="btn btn-primary" onClick={()=> add()}>Добавить в корзину</button>
+            : <button className="btn btn-primary" >уже в корзине</button>
+          }
+         
         </ul>
       </div>
     </div>
