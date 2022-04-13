@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React,{ useEffect} from 'react'
+import React,{ useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {getProduct} from '../../redux/actions/productAc'
 import {getCategories} from '../../redux/actions/categoriesAC'
@@ -20,6 +20,7 @@ const thisBuyer = useSelector(state => state.user)
 const product = useSelector(state => state.product)
 const cartProduct = useSelector(state => state.cart)
 // console.log('cartProduct -->', cartProduct);
+const [filter,setFilter] = useState(false)
 
 useEffect(() => {
  dispatch(getProduct())
@@ -33,13 +34,15 @@ useEffect(() => {
 },[thisBuyer, dispatch])
 const refresh = ()=> {
   dispatch(getProduct())
+  
+  setFilter(false)
 }
 
 
   return (
     <div className={styles.main_box}>
-      <CategoryFilter/>
-      <ProductFilter/>
+      <CategoryFilter filter ={filter} setFilter={setFilter} />
+      <ProductFilter />
       <button type="button" className="btn btn-primary" onClick={() =>refresh() }>Сбросить все фильтры</button>
       {product.length ?
       <>

@@ -14,7 +14,7 @@ try {
 
 router.get('/:id', async (req, res) => {
   try {
-    const products = await Product.findAll({where: {id: req.params.id}})
+    const products = await Product.findAll({where: {category_id: req.params.id}})
     res.json(products)
   } catch (error) {
     console.log(error);

@@ -50,15 +50,15 @@ router.post("/cart/:id", async (req, res) => {
 });
 
 
-router.post('/filter', async (req, res) => {
-  try {
-    const search = req.body.product;
-    const products = await Product.findAll({ where: { name: { [Op.iLike]: `%${search}%` } } });
-    res.json(products)
-  } catch (error) {
-    console.log(error);
-  }
-})
+// router.post('/filter', async (req, res) => {
+//   try {
+//     const search = req.body.product;
+//     const products = await Product.findAll({ where: { name: { [Op.iLike]: `%${search}%` } } });
+//     res.json(products)
+//   } catch (error) {
+//     console.log(error);
+//   }
+// })
 router.post('/:id', async (req, res) => {
   try {
     const { id } = req.params
