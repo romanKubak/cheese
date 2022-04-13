@@ -8,6 +8,7 @@ import {errorRegReducer} from './errorRegReducer'
 import {sellerReducer} from './sellerReducer'
 import {cartReducer} from './cartReducer'
 import {productReducer} from './productReducer'
+import {categoryReducer} from './categoryReducer'
 
 
 export const rootReducer = combineReducers({
@@ -16,5 +17,6 @@ export const rootReducer = combineReducers({
   errorReg: errorRegReducer,
   isSeller: sellerReducer,
   cart: cartReducer,
-  product: productReducer
+  product: productReducer,
+  categories: categoryReducer,
 });

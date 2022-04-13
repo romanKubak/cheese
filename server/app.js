@@ -12,6 +12,7 @@ const {User} = require('./db/models')
 
 
 const productRoutes = require('./router/productRoutes');
+const categoriesRouter = require('./router/categoriesRouter')
 const uploadPhotoRouter = require('./router/uploadPhotoRouters')
 const addProductRouter = require('./router/addProductRouter')
 
@@ -36,6 +37,7 @@ app.use('/api', router);
 app.use('/', uploadPhotoRouter)
 app.use('/product', productRoutes);
 app.use('/', addProductRouter)
+app.use('/categories', categoriesRouter);
 
 
 
