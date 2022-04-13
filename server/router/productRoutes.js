@@ -11,6 +11,19 @@ router.get("/all", async (req, res) => {
     res.sendStatus(500);
   }
 });
+
+router.get('/allMyProduct/:id', async (req, res) => {
+  try {
+    const {id}  = req.params
+    console.log('---userID---', id);
+    const allMyProducts = await Product.findAll({where: {seller_id: id}})
+    // console.log(allMyProducts);
+    res.json(allMyProducts)
+  } catch (error) {
+    console.log(error);
+  }
+})
+
 router.post("/cart/new", async (req, res) => {
   console.log(req.body);
   try {
@@ -65,6 +78,18 @@ router.post('/:id', async (req, res) => {
     console.log('id-----', id);
     const oneProductFromCart = await Basket.findOne({ where: { product_id: id }})
     await oneProductFromCart.destroy()
+    res.sendStatus(200)
+  } catch (error) {
+    
+  }
+})
+
+router.post('/delete/:id', async (req, res) => {
+  try {
+    const {id} = req.params
+    console.log('id-----', id);
+    const oneProduct = await Product.findOne({where: { id: id }})
+    await oneProduct.destroy()
     res.sendStatus(200)
   } catch (error) {
     

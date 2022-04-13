@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react'
 import { seller } from '../../redux/actions/userAC';
-import {useParams} from 'react-router-dom'
+import {useParams, Link} from 'react-router-dom'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react';
@@ -29,6 +29,7 @@ function Profile() {
           ? <button type="button" className="btn btn-primary" onClick={() => click()}>Стать продавцом</button>
           : <>
           <button type="button" className="btn btn-primary" onClick={() => showFrom()}>Добавить товар</button>
+          <Link to='/profile/myProducts' type='button' className="btn btn-primary">Мои продукты</Link>
           </>
       }
       {showForm 

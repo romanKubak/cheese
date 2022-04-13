@@ -10,6 +10,7 @@ import SignIn from './components/SignIn/SignIn';
 import Profile from './components/Profile/Profile';
 import ShoppingCart from './components/ShoppingCart/ShoppingCart';
 import MainPage from './components/MainPage/MainPage';
+import MyProducts from './components/MyProducts/MyProducts';
 
 function App() {
   const dispatch = useDispatch();
@@ -44,6 +45,7 @@ function App() {
         <Route path='/signin' element={ <SignIn /> } />
         <Route path='/profile/:id' element={< Profile/> } /> 
         <Route path='/cart/:id' element={< ShoppingCart/> } /> 
+        <Route path='profile/myProducts' element={ <MyProducts /> }/>
         {/* {user.email? <Route path='/' element={ <Game /> } /> : <Route path='/' element={ <SignIn /> } />} */}
       </Routes>
     </div>

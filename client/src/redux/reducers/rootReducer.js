@@ -9,7 +9,7 @@ import {sellerReducer} from './sellerReducer'
 import {cartReducer} from './cartReducer'
 import {productReducer} from './productReducer'
 import {categoryReducer} from './categoryReducer'
-
+import {myProductReducer} from './myProductReducer'
 
 export const rootReducer = combineReducers({
   user: userReducer,
@@ -19,4 +19,5 @@ export const rootReducer = combineReducers({
   cart: cartReducer,
   product: productReducer,
   categories: categoryReducer,
+  myProduct: myProductReducer,
 });

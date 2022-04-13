@@ -6,4 +6,5 @@ export const initState = {
   isSeller: false,
   cart: [],
   product: [],
+  myProduct: []
 };
