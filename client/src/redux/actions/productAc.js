@@ -21,3 +21,9 @@ export const getProduct = () => async(dispatch) =>{
   })
 
 }
+export const getFilterProducts = (product) => async(dispatch) => {
+   axios.post('http://localhost:3001/product/filter', { product })
+   .then((response) => {
+    dispatch(setProduct(response.data))
+   })
+}
