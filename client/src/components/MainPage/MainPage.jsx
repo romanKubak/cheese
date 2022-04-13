@@ -2,12 +2,14 @@ import axios from 'axios'
 import React,{ useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {getProduct} from '../../redux/actions/productAc'
+import {getCategories} from '../../redux/actions/categoriesAC'
 
 import {getCart} from '../../redux/actions/cartAC'
 
 import Product from '../Product/Product'
 import ProductFilter from '../ProductFilter/ProductFilter'
 import styles from './style.module.css'
+import CategoryFilter from '../CategoryFilter/CategoryFilter'
 
 
 export default function MainPage() {
@@ -21,6 +23,7 @@ const cartProduct = useSelector(state => state.cart)
 
 useEffect(() => {
  dispatch(getProduct())
+ dispatch(getCategories())
 },[])
 
 useEffect(() => {
@@ -28,13 +31,16 @@ useEffect(() => {
     dispatch(getCart(thisBuyer.id)) 
   }
 },[thisBuyer, dispatch])
-
+const refresh = ()=> {
+  dispatch(getProduct())
+}
 
 
   return (
     <div className={styles.main_box}>
-      
+      <CategoryFilter/>
       <ProductFilter/>
+      <button type="button" className="btn btn-primary" onClick={() =>refresh() }>Сбросить все фильтры</button>
       {product.length ?
       <>
        {product.map(product => <Product key={product.id} product={product}/>)}

@@ -6,8 +6,7 @@ import {getProduct} from '../../redux/actions/productAc'
 export default function ProductFilter() {
   const [input, setInput] = useState('');
   const dispatch = useDispatch();
-
-
+ 
 
 
   useEffect(() => {
