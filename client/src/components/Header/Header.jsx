@@ -69,9 +69,13 @@ export default function Header() {
             (
             <>
               {!isSeller ?
-              (<ShoppingCartIcon type='button' style={{ marginRight: '20px' }} onClick={() => navigate(`/cart/${user.id}`)}/>) :
-              null
+              (<>
+                  <h6>Привет {user.name}</h6>
+                  <ShoppingCartIcon type='button' style={{marginRight: '20px'}} onClick={() => navigate(`/cart/${user.id}`)}/>
+              </>) 
+              : null
               }
+              <h6 styles={{marginRigth: '10px'}}>Привет {user.name}</h6>
               <PersonIcon type='button' style={{ marginRight: '20px' }}onClick={() =>profile()}/>
               <LogoutIcon  type='button'  onClick={() => logout()}/>
              </>
