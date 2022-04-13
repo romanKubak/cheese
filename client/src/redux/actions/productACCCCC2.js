@@ -1,8 +1,8 @@
 import axios from "axios"
 
-export const addProduct = (values) => async(dispatch) =>{
-  console.log('values ---> ', values)
-  axios.post('http://localhost:3001/api/upload', values, {
+export const addProduct = (formData) => async (dispatch) =>{
+  console.log('values ---> ', formData)
+  axios.post('http://localhost:3001/addProduct', formData, {
     withCredentials: true,
   })
   .then((data) => {

@@ -11,15 +11,15 @@ import TestForm from '../TestForm/TestForm';
 
 function Profile() {
     
-    const {id} = useParams()
-    const user = useSelector(state => state.user);
-    const isSeller = useSelector(state => state.isSeller);
-    const dispatch = useDispatch();
+  const {id} = useParams()
+  const user = useSelector(state => state.user);
+  const isSeller = useSelector(state => state.isSeller);
+  const dispatch = useDispatch();
   const [showForm, setShowForm] = useState(false)
     
-const click = ()=> {
-  dispatch(seller(id))
-}
+  const click = ()=> {
+    dispatch(seller(id))
+  }
   const showFrom = () => {
     setShowForm(!showForm)
   }
@@ -32,11 +32,9 @@ const click = ()=> {
           </>
       }
       {showForm 
-      ? <AddProductForm />
+      ? <TestForm />
       : null
       }
-      <TestForm />
-   
       </>
     )
   }
