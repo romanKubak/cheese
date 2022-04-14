@@ -3,8 +3,8 @@ export const initState = {
   categories: [],
   error: '',
   errorReg: '',
-  isSeller: false,
   cart: [],
   product: [],
-  myProduct: []
+  myProduct: [],
+  sub: []
 };

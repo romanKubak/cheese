@@ -11,6 +11,7 @@ import Profile from './components/Profile/Profile';
 import ShoppingCart from './components/ShoppingCart/ShoppingCart';
 import MainPage from './components/MainPage/MainPage';
 import MyProducts from './components/MyProducts/MyProducts';
+import SubCategories from './components/SubCategories/SubCategories';
 
 function App() {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ function App() {
       const response = await axios.get(`http://localhost:3001/api/refresh`, {withCredentials: true})
       localStorage.setItem('token', response.data.accessToken);
       dispatch({type: 'SET_USER', payload: response.data.user});
-      dispatch({type: 'SET_SELLER', payload: response.data.user.isSeller})
+
       
     } catch (e) {
       console.log(e.response?.data?.message);
@@ -45,6 +46,7 @@ function App() {
         <Route path='/signin' element={ <SignIn /> } />
         <Route path='/profile/:id' element={< Profile/> } /> 
         <Route path='/cart/:id' element={< ShoppingCart/> } /> 
+        <Route path='/category/:id' element={< SubCategories/> } /> 
         <Route path='profile/myProducts' element={ <MyProducts /> }/>
         {/* {user.email? <Route path='/' element={ <Game /> } /> : <Route path='/' element={ <SignIn /> } />} */}
       </Routes>

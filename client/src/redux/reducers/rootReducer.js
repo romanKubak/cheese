@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 
 import { userReducer } from './userReducer';
+import { subReducer } from './subReducer';
 
 
 import {errorReducer} from './errorReducer'
@@ -19,4 +20,5 @@ export const rootReducer = combineReducers({
   product: productReducer,
   categories: categoryReducer,
   myProduct: myProductReducer,
+  sub: subReducer,
 });
