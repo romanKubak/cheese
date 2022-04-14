@@ -39,9 +39,8 @@ const refresh = ()=> {
 
   return (
     <div className={styles.main_box}>
-      <CategoryFilter filter ={filter} setFilter={setFilter} />
-      <ProductFilter filter ={filter}/>
-      <button type="button" className="btn btn-primary" onClick={() =>refresh() }>Сбросить все фильтры</button>
+      
+      
       {categories.length ?
       <>
        {categories.map(category => <AllCategories key={category.id} category={category}/>)}
