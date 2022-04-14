@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React,{ useEffect, useState} from 'react'
 import { Form, Select, InputNumber, Switch, Slider, Button, Upload, Input } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
+import {getSub} from '../../redux/actions/categoriesAC'
 import styles from './style.module.css'
 
 import { addProduct } from '../../redux/actions/productAc'
@@ -23,16 +24,29 @@ export default function TestForm({showFrom}) {
   
   const dispatch = useDispatch();
   const userId = useSelector(state => state.user.id);
+  const categories = useSelector(state => state.categories)
+  const subCategoryes = useSelector(state => state.sub)
   console.log(userId);
   
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const [price, setPrice] = useState('')
   const [category, setCategory] = useState('')
+  const [subCategory, setSubCategory] =  useState('')
   const [file, setFile] = useState(null)
+
+  console.log('subCategory', subCategory);
+
+  useEffect(() => {
+    if(category !== '') {
+      console.log('useEffect');
+      dispatch(getSub(category))
+    }
+  }, [category])
   
   function onChange(value) {
     setCategory(value);
+    setSubCategory(value)
   }
   
   function onSearch(val) {
@@ -58,7 +72,7 @@ export default function TestForm({showFrom}) {
         formData.append('name', name)
         formData.append('description', description)
         formData.append('price', price)
-        formData.append('category', category)
+        formData.append('subCategory', subCategory)
         formData.append('userId', userId)
         formData.append('img', file)
     dispatch(addProduct(formData))
@@ -141,13 +155,39 @@ export default function TestForm({showFrom}) {
                     }
                     className={styles.selectInput}
                     >
-                    <Option value="Твердые и полутвердые сыры">Твердые и полутвердые сыры</Option>
-                    <Option value="Мягкие и рассольные сыры">Мягкие и рассольные сыры</Option>
-                    <Option value="Сыры с голубой плесенью">Сыры с голубой плесенью</Option>
-                    <Option value="Сыры из козьего и овечьего молока">Сыры из козьего и овечьего молока</Option>
-                    <Option value="Сырные снеки">Сырные снеки</Option>
-                    <Option value="Сыры с белой плесенью">Сыры с белой плесенью</Option>
-                    <Option value="Дополнительные товары">Дополнительные товары</Option>
+                    {
+                      categories.length 
+                        ? categories.map(category =>  <Option value={category.id}  key ={category.id} >{category.name}</Option>)
+                        : null
+                    }
+                  </Select>
+                </Form.Item>
+
+                <Form.Item
+                   label="Подкатегория"
+                   rules={[
+                    {
+                      required: true,
+                      message: 'Ввыберете подкатегорию',
+                    }]}>
+
+                  <Select
+                    label="Category"
+                    showSearch
+                    placeholder="Выбери категорию товара"
+                    optionFilterProp="children"
+                    onChange={onChange}
+                    onSearch={onSearch}
+                    filterOption={(input, option) =>
+                      option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                    }
+                    className={styles.selectInput}
+                    >
+                    {
+                      subCategoryes.length 
+                        ? subCategoryes.map(category =>  <Option value={category.id}  key ={category.id} >{category.title}</Option>)
+                        : null
+                    }
                   </Select>
                 </Form.Item>
 

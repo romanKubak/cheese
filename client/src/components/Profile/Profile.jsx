@@ -1,12 +1,9 @@
-
-
 import React, { useEffect } from 'react'
-import { seller } from '../../redux/actions/userAC';
 import {useParams, Link} from 'react-router-dom'
+import {getCategories} from '../../redux/actions/categoriesAC'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react';
-import AddProductForm from '../AddProductForm/AddProductForm';
 import TestForm from '../TestForm/TestForm';
 
 function Profile() {
@@ -16,7 +13,10 @@ function Profile() {
 
   const dispatch = useDispatch();
   const [showForm, setShowForm] = useState(false)
-    
+  
+  useEffect(() => {
+    dispatch(getCategories())
+  },[dispatch])
  
   const showFrom = () => {
     setShowForm(!showForm)
