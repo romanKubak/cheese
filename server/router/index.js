@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { registrationUser, loginUser, logoutUser, getUsers, refreshUser, seller } = require('../controllers/userControllers')
+const { registrationUser, loginUser, logoutUser, getUsers, refreshUser  } = require('../controllers/userControllers')
 const { body } = require('express-validator')
 const authMiddleware = require('../middleware/authMiddliware')
 
@@ -19,7 +19,7 @@ router.get('/users', authMiddleware, getUsers)
 
 router.get('/refresh', refreshUser)
 
-router.post('/seller/:id', seller)
+
 
 
 module.exports = router

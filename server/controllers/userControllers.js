@@ -73,16 +73,5 @@ const getUsers = async (req, res, next) => {
   }
 }
 
-const seller = async (req, res, next) => {
-  const id = req.params.id
-  try {
-    const user = await User.findOne({where: {id}})
-    await user.update({isSeller: true})
-    res.json(user)
-  } catch (error) {
-    console.log(error);
-  }
-}
 
-
-module.exports = { registrationUser, loginUser, logoutUser, getUsers, refreshUser, seller}
+module.exports = { registrationUser, loginUser, logoutUser, getUsers, refreshUser}

@@ -17,9 +17,7 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
-      isSeller: {
-        type: Sequelize.BOOLEAN
-      },
+    
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
