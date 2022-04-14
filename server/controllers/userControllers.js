@@ -78,7 +78,7 @@ const seller = async (req, res, next) => {
   try {
     const user = await User.findOne({where: {id}})
     await user.update({isSeller: true})
-    res.sendStatus(200)
+    res.json(user)
   } catch (error) {
     console.log(error);
   }

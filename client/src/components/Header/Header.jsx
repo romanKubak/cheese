@@ -63,7 +63,7 @@ export default function Header() {
           </Box>
 
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-           Сыр
+        
           </Typography>
           {user.email ?
             (

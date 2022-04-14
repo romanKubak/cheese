@@ -68,5 +68,6 @@ export const seller = (id) => async(dispatch) => {
 $api.post(`/seller/${id}`)
 .then((data) => {
   dispatch(setSeller(true))
+  dispatch(setUser(data.data))
 })
 }
