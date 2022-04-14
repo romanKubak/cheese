@@ -47,3 +47,11 @@ export const deleteProduct = (productId) => async(dispatch) =>{
       dispatch(deleteOneProd(productId))
     })
 }
+
+export const showAllSubProducts = (id) => async(dispatch) =>{
+  
+  axios.get(`http://localhost:3001/product/sub/${id}`)
+    .then((data) => {
+      dispatch(setProduct(data.data))
+    })
+}

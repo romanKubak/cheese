@@ -12,6 +12,7 @@ import ShoppingCart from './components/ShoppingCart/ShoppingCart';
 import MainPage from './components/MainPage/MainPage';
 import MyProducts from './components/MyProducts/MyProducts';
 import SubCategories from './components/SubCategories/SubCategories';
+import ShowAllSubProducts from './components/ShowAllSubProducts/ShowAllSubProducts';
 
 function App() {
   const dispatch = useDispatch();
@@ -48,6 +49,7 @@ function App() {
         <Route path='/cart/:id' element={< ShoppingCart/> } /> 
         <Route path='/category/:id' element={< SubCategories/> } /> 
         <Route path='profile/myProducts' element={ <MyProducts /> }/>
+        <Route path='/sub/:id' element={ <ShowAllSubProducts /> }/>
         {/* {user.email? <Route path='/' element={ <Game /> } /> : <Route path='/' element={ <SignIn /> } />} */}
       </Routes>
     </div>

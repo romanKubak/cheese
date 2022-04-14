@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import {useParams} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import {getSub} from '../../redux/actions/categoriesAC'
+import OneSub from '../OneSub/OneSub'
 export default function SubCategories() {
 const dispatch = useDispatch()
 const sub = useSelector(state => state.sub)
@@ -10,11 +11,12 @@ const sub = useSelector(state => state.sub)
     dispatch(getSub(id))
   },[id])
   return (
-    <div>
-{sub.length ? sub.map((sub)=>{
-  <h4>{sub.title}</h4>
-}): <h4>не нашел</h4>}
+    <>
+    {sub.length ? sub.map((sub)=> <OneSub key={sub.id} sub={sub}/>) 
+  :
+  null  
+  }
+    </>
 
-    </div>
   )
 }

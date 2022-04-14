@@ -12,7 +12,7 @@ try {
 
 })
 
-router.get('/sub/:id', async (req, res) => {
+router.post('/sub/:id', async (req, res) => {
   try {
     const sub = await SubCategory.findAll({where: {category_id: req.params.id}})
     res.json(sub)

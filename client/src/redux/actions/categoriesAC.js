@@ -22,7 +22,7 @@ export const setSub = (sub) => {
 }
 
 export const getSub = (id) => async(dispatch) => {
-  axios.get(`http://localhost:3001/categories/sub/${id}`)
+  axios.post(`http://localhost:3001/categories/sub/${id}`)
   .then((response) => {
     dispatch(setSub(response.data))
   })

@@ -24,6 +24,18 @@ router.get('/allMyProduct/:id', async (req, res) => {
   }
 })
 
+router.get('/sub/:id', async (req, res) => {
+  try {
+    const {id}  = req.params
+   
+    const allMyProducts = await Product.findAll({where: {subCategory_id: id}})
+    // console.log(allMyProducts);
+    res.json(allMyProducts)
+  } catch (error) {
+    console.log(error);
+  }
+})
+
 router.post("/cart/new", async (req, res) => {
   console.log(req.body);
   try {
