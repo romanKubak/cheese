@@ -37,7 +37,7 @@ export const allMyProducts = (id) => async(dispatch) => {
 }
 //---------asdfasdf---------------
 export const deleteOneProd = (productId) => {
-  return {type: 'REMOVE_PRODUCT', payload: productId}
+  return {type: 'REMOVE_MY_PRODUCT', payload: productId}
 }
 
 export const deleteProduct = (productId) => async(dispatch) =>{

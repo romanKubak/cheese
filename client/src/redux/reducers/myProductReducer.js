@@ -6,7 +6,7 @@ export const myProductReducer = (state = initState, action)=>{
   switch (type) {
     case 'SET_MY_PRODUCT':
       return payload;
-    case 'REMOVE_PRODUCT':
+    case 'REMOVE_MY_PRODUCT':
       return state.filter(el => el.id !== payload)
   
     default:
