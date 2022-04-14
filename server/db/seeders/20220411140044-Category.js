@@ -4,32 +4,27 @@ module.exports = {
   async up (queryInterface, Sequelize) {
      await queryInterface.bulkInsert('Categories', [
       {
-        name: 'Твердые и полутвердые сыры',
+        name: 'Marvel',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: 'Мягкие и рассольные сыры',
+        name: 'DC - Detective Comics',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: 'Сыры с голубой плесенью',
+        name: 'Гарри Поттер',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: 'Сыры с белой плесенью',
+        name: 'Форсаж',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name: 'Сыры из козьего и овечьего молока',
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      },
-      {
-        name: 'Сырные снеки',
+        name: 'Звездные войны',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
