@@ -6,5 +6,7 @@ const AddOneProductController = require('../controllers/addOneProductController'
 
 router.post('/addProduct', AddOneProductController.create)
 
+router.post('/update', AddOneProductController.update)
+
 
 module.exports = router

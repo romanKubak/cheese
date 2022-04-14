@@ -19,14 +19,10 @@ const formItemLayout = {
 
 
 export default function TestForm({showFrom}) {
-  
-  
-  
   const dispatch = useDispatch();
   const userId = useSelector(state => state.user.id);
   const categories = useSelector(state => state.categories)
   const subCategoryes = useSelector(state => state.sub)
-  console.log(userId);
   
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
@@ -35,8 +31,7 @@ export default function TestForm({showFrom}) {
   const [subCategory, setSubCategory] =  useState('')
   const [file, setFile] = useState(null)
 
-  console.log('subCategory', subCategory);
-
+  
   useEffect(() => {
     if(category !== '') {
       console.log('useEffect');
@@ -54,12 +49,9 @@ export default function TestForm({showFrom}) {
   }
 
   const normFile = (e) => {
-    console.log('Upload event:', e);
-  
     if (Array.isArray(e)) {
       return e;
     }
-  
     return e && e.fileList;
   };
 
@@ -202,7 +194,8 @@ export default function TestForm({showFrom}) {
                     {
                       required: true,
                       message: 'Выберете фото',
-                    }]}>
+                    }]}
+                    >
                   <Upload name="logo" listType="picture">
                     <Button icon={<UploadOutlined /> } >Добавить фото</Button>
                   </Upload>

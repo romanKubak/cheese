@@ -7,8 +7,14 @@ export const myProductReducer = (state = initState, action)=>{
     case 'SET_MY_PRODUCT':
       return payload;
     case 'REMOVE_MY_PRODUCT':
-      return state.filter(el => el.id !== payload)
-  
+      return state.filter(el => el.id !== payload);
+    case 'UPDATE_PRODUCT':
+      return state.map((el) => {
+        if(el.id === payload.id){
+           el = payload
+        }
+        return el
+      })
     default:
       return state;
   }
