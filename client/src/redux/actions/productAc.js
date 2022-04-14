@@ -10,6 +10,21 @@ export const addProduct = (formData) => async (dispatch) =>{
   })
 }
 
+export const updateProduct = (formData) => async (dispatch) =>{
+  console.log('values ---> ', formData)
+  axios.post('http://localhost:3001/update', formData, {
+    withCredentials: true,
+  })
+  .then((updateProd) => {
+    console.log('updateProd', updateProd);
+    dispatch(getUpdateOneMyProd(updateProd.data))
+  })
+}
+
+export const getUpdateOneMyProd = (obj) => {
+  return {type: 'UPDATE_PRODUCT', payload: obj}
+}
+
 export const setProduct = (product) => {
   return {type: 'SET_PRODUCT', payload: product}
 }

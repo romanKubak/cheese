@@ -22,7 +22,7 @@ const [filter,setFilter] = useState(false)
 useEffect(() => {
 //  dispatch(getProduct())
  dispatch(getCategories())
-},[])
+},[dispatch])
 
 useEffect(() => {
   if(thisBuyer.email) {
