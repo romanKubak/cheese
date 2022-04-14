@@ -7,7 +7,6 @@ import {useDispatch, useSelector} from 'react-redux'
 export default function Product({product}) {
  const user = useSelector(store => store.user)
  const navigate = useNavigate()
-  const isSeller = useSelector(store => store.user.isSeller)
   const cartProducts = useSelector(store => store.cart)
   const dispatch = useDispatch()
   const add = ()=> {
@@ -38,7 +37,7 @@ export default function Product({product}) {
         <ul className="list-group list-group-flush">
           <li className="list-group-item">{product.price}</li>
           {!repeatProd.length 
-            ?(user.isSeller ? null : <button className="btn btn-primary" onClick={()=> add()}>Добавить в корзину</button>)
+            ?(user.id === product.seller_id ? null : <button className="btn btn-primary" onClick={()=> add()}>Добавить в корзину</button>)
             : <button className="btn btn-primary" >уже в корзине</button>
           }
          

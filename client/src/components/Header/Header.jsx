@@ -20,7 +20,6 @@ import { useDispatch, useSelector } from 'react-redux';
 // dispatch({type: 'SET_USER', payload: user})
 export default function Header() {
   const user = useSelector(state => state.user);
-  const isSeller =useSelector(state => state.isSeller)
   const dispatch = useDispatch();
   const navigate = useNavigate()
 
@@ -58,30 +57,29 @@ export default function Header() {
           >
 
 
-            <HomeIcon  onClick={() => navigate('/')} />
+            <HomeIcon onClick={() => navigate('/')} />
 
           </Box>
 
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-        
+
           </Typography>
           {user.email ?
             (
-            <>
-              <h6 styles={{marginRigth: '10px'}}>Привет {user.name}</h6>
-              {!isSeller ?
-              (<>
-                  <ShoppingCartIcon type='button' style={{marginRight: '20px'}} onClick={() => navigate(`/cart/${user.id}`)}/>
-              </>) 
-              : null
-              }
-              
-              <PersonIcon type='button' style={{ marginRight: '20px' }}onClick={() =>profile()}/>
-              <LogoutIcon  type='button'  onClick={() => logout()}/>
-             </>
+              <>
+                <h6 styles={{ marginRigth: '10px' }}>Привет {user.name}</h6>
+
+
+                <ShoppingCartIcon type='button' style={{ marginRight: '20px' }} onClick={() => navigate(`/cart/${user.id}`)} />
+
+
+
+                <PersonIcon type='button' style={{ marginRight: '20px' }} onClick={() => profile()} />
+                <LogoutIcon type='button' onClick={() => logout()} />
+              </>
             )
             :
-            (<> 
+            (<>
               <Link to='/signup' type='button' style={{ marginRight: '20px' }} className="btn btn-primary">Регистрация</Link>
               <Link to='/signin' type='button' className="btn btn-primary">Войти</Link>
             </>)
