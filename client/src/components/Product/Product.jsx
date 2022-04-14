@@ -1,16 +1,22 @@
 import React, { useEffect } from 'react'
 import styles from './style.module.css'
 import {addToCart} from '../../redux/actions/cartAC'
-import {useParams} from 'react-router-dom'
+import {useParams,useNavigate} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 
 export default function Product({product}) {
  const user = useSelector(store => store.user)
+ const navigate = useNavigate()
   const isSeller = useSelector(store => store.user.isSeller)
   const cartProducts = useSelector(store => store.cart)
   const dispatch = useDispatch()
   const add = ()=> {
-    dispatch(addToCart({userID:user.id, productID:product.id}))
+    if (user.name) {
+      
+      dispatch(addToCart({userID:user.id, productID:product.id}))
+    }else {
+      navigate('/signup')
+    }
   }
 
 
@@ -32,7 +38,7 @@ export default function Product({product}) {
         <ul className="list-group list-group-flush">
           <li className="list-group-item">{product.price}</li>
           {!repeatProd.length 
-            ?(isSeller ? null : <button className="btn btn-primary" onClick={()=> add()}>Добавить в корзину</button>)
+            ?(user.isSeller ? null : <button className="btn btn-primary" onClick={()=> add()}>Добавить в корзину</button>)
             : <button className="btn btn-primary" >уже в корзине</button>
           }
          
