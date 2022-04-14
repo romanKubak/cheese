@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Category, Product} = require("../db/models");
+const { Category, Product,SubCategory} = require("../db/models");
 const { Op } = require('sequelize');
 
 router.get('/all', async (req, res) => {
@@ -11,6 +11,16 @@ try {
 }
 
 })
+
+router.get('/sub/:id', async (req, res) => {
+  try {
+    const sub = await SubCategory.findAll({where: {category_id: req.params.id}})
+    res.json(sub)
+  } catch (error) {
+    console.log(error);
+  }
+  
+  })
 
 router.get('/:id', async (req, res) => {
   try {
