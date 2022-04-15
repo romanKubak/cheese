@@ -6,6 +6,7 @@ import {showAllSubProducts} from '../../redux/actions/productAc'
 import Product from '../Product/Product'
 import ProductFilter from '../ProductFilter/ProductFilter'
 import CategoryFilter from '../CategoryFilter/CategoryFilter'
+import PriceFilter from '../PriceFilter/PriceFilter'
 export default function ShowAllSubProducts() {
 const {id} = useParams()
 const dispatch = useDispatch()
@@ -19,6 +20,7 @@ dispatch(showAllSubProducts(id))
 
 
       <ProductFilter />
+      <PriceFilter/>
 {product.length ? product.map(product => 
   <Product key={product.id} product={product}/>
 ) : 

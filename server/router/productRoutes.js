@@ -24,11 +24,30 @@ router.get('/allMyProduct/:id', async (req, res) => {
   }
 })
 
-router.get('/sub/:id', async (req, res) => {
+router.post('/sub/:id', async (req, res) => {
+  let allMyProducts;
   try {
     const {id}  = req.params
+
+    if (req.body.value === 1) {
+      allMyProducts = await Product.findAll({include:{
+        model:User, 
+        attributes: ['name', 'id']
+      },where: {subCategory_id: id}, order:[['price','DESC']]})
+   }else if(req.body.value === 2) {
+
+    allMyProducts = await Product.findAll({include:{
+      model:User, 
+      attributes: ['name', 'id']
+    },where: {subCategory_id: id}, order:[['price','ASC']]})
+   }else {
+    allMyProducts = await Product.findAll({include:{
+      model:User, 
+      attributes: ['name', 'id']
+    },where: {subCategory_id: id}})
+     
+   }
    
-    const allMyProducts = await Product.findAll({where: {subCategory_id: id}})
     // console.log(allMyProducts);
     res.json(allMyProducts)
   } catch (error) {

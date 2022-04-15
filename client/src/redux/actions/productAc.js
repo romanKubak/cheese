@@ -65,8 +65,17 @@ export const deleteProduct = (productId) => async(dispatch) =>{
 
 export const showAllSubProducts = (id) => async(dispatch) =>{
   
-  axios.get(`http://localhost:3001/product/sub/${id}`)
+  axios.post(`http://localhost:3001/product/sub/${id}`)
     .then((data) => {
       dispatch(setProduct(data.data))
+    })
+}
+
+export const priceFilter = ({id,value}) => async(dispatch) => {
+  
+  axios.post(`http://localhost:3001/product/sub/${id}`,{value})
+    .then((data) => {
+      dispatch(setProduct(data.data))
+      
     })
 }
