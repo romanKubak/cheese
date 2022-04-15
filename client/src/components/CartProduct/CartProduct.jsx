@@ -12,8 +12,8 @@ export default function CartProduct({product}) {
   }
 
   return (
-    <div className={styles.main_box}>
-    <div className="card" style={{width: '18rem'}}>
+    <div className={styles.main_oneProd_box}>
+    
       <img src={process.env.REACT_APP_API_URL + product.img} className={styles.card_img_top} alt="..."/>
       <div className="card-body">
         <h5 className="card-title">{product.name}</h5>
@@ -23,7 +23,7 @@ export default function CartProduct({product}) {
         <li className="list-group-item">{product.price}</li>
        <button className="btn btn-primary" onClick={() => deleteOne()}>Удалить</button>
       </ul>
-    </div>
+    
   </div>
   )
 }
