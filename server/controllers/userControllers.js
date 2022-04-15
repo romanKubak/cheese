@@ -1,7 +1,7 @@
 const { registration, login, logout, refresh, getAllUsers } = require('../service/userService')
 const { validationResult } = require('express-validator')
 const ApiError = require('../exceptions/apiError')
-const {User} = require('../db/models')
+const {User, Comment} = require('../db/models')
 
 
 const registrationUser = async (req, res, next) => {
@@ -73,5 +73,23 @@ const getUsers = async (req, res, next) => {
   }
 }
 
+const newCommentUser = async (req, res, next) => {
+try {
+  const comment = await Comment.create({user_name:req.body.user, text:req.body.text, user_id:req.params.id})
+  res.json(comment)
+} catch (error) {
+  console.log(error);
+}
+}
 
-module.exports = { registrationUser, loginUser, logoutUser, getUsers, refreshUser}
+const commentUser = async (req, res, next) => {
+try {
+  const comments = await Comment.findAll({where:{user_id:req.params.id}})
+  res.json(comments)
+} catch (error) {
+  console.log(error);
+}
+}
+
+
+module.exports = { registrationUser, loginUser, logoutUser, getUsers, refreshUser,newCommentUser,commentUser}
