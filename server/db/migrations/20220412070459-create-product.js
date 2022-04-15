@@ -20,6 +20,9 @@ module.exports = {
       img: {
         type: Sequelize.STRING
       },
+      statusDone: {
+        type: Sequelize.BOOLEAN,
+      },
       subCategory_id: {
         type: Sequelize.INTEGER,
         references: {

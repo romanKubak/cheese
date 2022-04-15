@@ -6,9 +6,15 @@ import styles from './style.module.css'
 export default function CartProduct({product}) {
 
   const dispatch = useDispatch()
+  const buyerID = useSelector(state => state.user.id)
 
   const deleteOne = () => {
     dispatch(deleteOneFromCart(product.id))
+  }
+
+  const buyOne = () => {
+    console.log('buyOne', product.id);
+    // dispatch(deleteOneFromCart(product))
   }
 
   return (
@@ -21,7 +27,8 @@ export default function CartProduct({product}) {
       </div>
       <ul className="list-group list-group-flush">
         <li className="list-group-item">{product.price}</li>
-       <button className="btn btn-primary" onClick={() => deleteOne()}>Удалить</button>
+       <button className="btn btn-danger" onClick={() => deleteOne()}>Удалить</button>
+       <button className="btn btn-primary" onClick={() => buyOne()}>Заказать</button>
       </ul>
     
   </div>
