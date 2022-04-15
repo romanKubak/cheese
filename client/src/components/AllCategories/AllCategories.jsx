@@ -10,7 +10,7 @@ const add = (id) => {
 
   return (
     <div>
-      <div className={styles.main_box}>
+      <div className={styles.main_box} onClick={()=> add(category.id)}>
       <div className="card" style={{width: '18rem'}}>
         <img src={process.env.REACT_APP_API_URL + category.img} className={styles.card_img_top} alt="..."/>
         <div className="card-body">
@@ -20,7 +20,7 @@ const add = (id) => {
         <ul className="list-group list-group-flush">
           
         
-        <button className="btn btn-primary" onClick={()=> add(category.id)}>Подробнее</button>
+        {/* <button className="btn btn-primary" onClick={()=> add(category.id)}>Подробнее</button> */}
             
          
          

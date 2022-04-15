@@ -19,6 +19,8 @@ export default function ShoppingCart() {
 
   return (
     <div className={styles.main_box}>
+      <button>Оформить заказ</button>
+      
       {products.length 
         ? products.map(product => <CartProduct key={product.id} product={product}/>)
         : null
