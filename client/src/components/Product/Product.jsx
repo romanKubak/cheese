@@ -33,6 +33,8 @@ export default function Product({product}) {
         <div className="card-body">
           <h5 className="card-title">{product.name}</h5>
           <p className="card-text">{product.description}</p>
+          <p className="card-text">Продавец {product.User.name}</p>
+
         </div>
         <ul className="list-group list-group-flush">
           <li className="list-group-item">{product.price}</li>
