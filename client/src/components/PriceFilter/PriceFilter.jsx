@@ -31,15 +31,15 @@ if (value === 'Сначала дорогие'){
       <Select
         label="Category"
         showSearch
-        placeholder="Выбери категорию товара"
+        placeholder="Фильтр по цене"
         optionFilterProp="children"
        
        
         // onClick={(e)=> console.log(e.target.title)}
         onChange={(value)=> search(value)}
-        filterOption={(input, option) =>
-          option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-        }
+        // filterOption={(input, option) =>
+        //   option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+        // }
         className='lalala'
       > 
        <Option  value='Сначала дорогие'  >Сначала дорогие</Option>

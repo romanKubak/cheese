@@ -6,5 +6,6 @@ export const initState = {
   cart: [],
   product: [],
   myProduct: [],
-  sub: []
+  sub: [],
+  comments: [],
 };

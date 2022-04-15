@@ -16,7 +16,10 @@ router.get('/allMyProduct/:id', async (req, res) => {
   try {
     const {id}  = req.params
     console.log('---userID---', id);
-    const allMyProducts = await Product.findAll({where: {seller_id: id}})
+    const allMyProducts = await Product.findAll({include:{
+      model:User, 
+      attributes: ['name', 'id']
+    },where: {seller_id: id}})
     // console.log(allMyProducts);
     res.json(allMyProducts)
   } catch (error) {
