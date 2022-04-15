@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import styles from './style.module.css'
 import {addToCart} from '../../redux/actions/cartAC'
-import {useParams,useNavigate} from 'react-router-dom'
+import {useParams,useNavigate, Link} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 
 export default function Product({product}) {
@@ -33,7 +33,12 @@ export default function Product({product}) {
         <div className="card-body">
           <h5 className="card-title">{product.name}</h5>
           <p className="card-text">{product.description}</p>
-          <p className="card-text">Продавец {product.User.name}</p>
+          {user.id === product.User.id ? 
+              <p>Это ваш товар</p>
+          :
+          <Link className="card-text" to={`/seller/${product.User.id}`}>Продавец {product.User.name}</Link>
+        
+            }
 
         </div>
         <ul className="list-group list-group-flush">

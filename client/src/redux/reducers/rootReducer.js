@@ -6,6 +6,7 @@ import { subReducer } from './subReducer';
 
 import {errorReducer} from './errorReducer'
 import {errorRegReducer} from './errorRegReducer'
+import {commentsReducer} from './commentsReducer'
 
 import {cartReducer} from './cartReducer'
 import {productReducer} from './productReducer'
@@ -21,4 +22,5 @@ export const rootReducer = combineReducers({
   categories: categoryReducer,
   myProduct: myProductReducer,
   sub: subReducer,
+  comments: commentsReducer,
 });

@@ -1,4 +1,5 @@
 import $api from '../../http/index'
+import axios from 'axios'
 
 export const setErrorReg = (error) => {
   return {type: 'SET_ERROR_REG', payload: error}
@@ -60,4 +61,31 @@ export const logoutUser = () => async(dispatch) => {
     localStorage.removeItem('token');
   })
 }
+export const setComments = (comments) => {
+  return {type: 'SET_COMMENTS', payload: comments}
+}
+export const addComment = (comment) => {
+  return {type: 'ADD_COMMENT', payload: comment}
+}
 
+
+export const newComment = ({values,id,user}) => async(dispatch) => {
+
+  $api.post(`/comment/new/${id}`,{text:values.title, user:user})
+  .then((response) => {
+    
+    dispatch(addComment(response.data))
+   
+  })
+}
+
+
+export const allComments = (id) => async(dispatch) => {
+  
+  $api.get(`/comments/${id}`)
+  .then((response) => {
+
+    dispatch(setComments(response.data))
+   
+  })
+}
