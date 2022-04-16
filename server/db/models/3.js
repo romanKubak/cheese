@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate({SubCategory, User, Basket, Order}) {
       this.belongsTo(SubCategory, {foreignKey: "subCategory_id"});
       this.belongsTo(User, {foreignKey: "seller_id"});
+      this.hasMany(Order, {foreignKey: "product_id"})
       
       this.belongsToMany(User, {
 				through: Basket,
@@ -26,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING,
     price: DataTypes.STRING,
     img: DataTypes.STRING,
+    statusDone: DataTypes.BOOLEAN,
     subCategory_id: DataTypes.INTEGER,
     seller_id: DataTypes.INTEGER,
   }, {

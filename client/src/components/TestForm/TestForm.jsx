@@ -30,6 +30,7 @@ export default function TestForm({showFrom}) {
   const [category, setCategory] = useState('')
   const [subCategory, setSubCategory] =  useState('')
   const [file, setFile] = useState(null)
+  console.log('file', file);
 
   
   useEffect(() => {
@@ -56,6 +57,7 @@ export default function TestForm({showFrom}) {
   };
 
   const selectFile = e => {
+    console.log(e.target.files[0]);
     setFile(e.target.files[0])
   }
 

@@ -20,14 +20,11 @@ return {type: 'ADD_CART', payload: product}
 
 
 export const getCart = (id) => async(dispatch) => {
-
   axios.post(`http://localhost:3001/product/cart/${id}`)
   .then((data) => {
     dispatch(setCart(data.data))
-
-  
   })
-  }
+}
 
 
 export const deleteOneProdCart = (productId) => {
@@ -40,4 +37,31 @@ export const deleteOneFromCart = (productId) => async(dispatch) =>{
     .then((data) => {
       dispatch(deleteOneProdCart(productId))
     })
+}
+
+export const buyOneFromCart = (data) => async(dispatch) => {
+  // console.log('buyerID -- from AC', data);
+  axios.post(`http://localhost:3001/setOrder`, data)
+  .then((data) => {
+    // console.log(data);
+    dispatch(deleteOneProdCart(data.data.newOrder.product_id))
+    dispatch(addProductToWaitingList(data.data.unComplitetProductInOrder))
+    // console.log('newProd', data.data.unComplitetProductInOrder);
+  })
+}
+
+export const addProductToWaitingList = (product) => {
+  return {type: 'ADD_WAITING_LIST', payload: product}
+  }
+
+export const getWatingList = (id) => async(dispatch) => {
+  axios.post(`http://localhost:3001/waitingList/${id}`)
+  .then((data) => {
+    console.log(data);
+    dispatch(setWaitingList(data.data))
+  })
+}
+
+export const setWaitingList = (watingProducts) => {
+  return {type: 'SET_WAITING_LIST', payload: watingProducts}
 }

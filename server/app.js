@@ -15,6 +15,7 @@ const productRoutes = require('./router/productRoutes');
 const categoriesRouter = require('./router/categoriesRouter')
 const uploadPhotoRouter = require('./router/uploadPhotoRouters')
 const addProductRouter = require('./router/addProductRouter')
+const orderRouter = require('./router/orderRouters')
 
 
 const PORT = process.env.PORT || 3002;
@@ -38,6 +39,7 @@ app.use('/', uploadPhotoRouter)
 app.use('/product', productRoutes);
 app.use('/', addProductRouter)
 app.use('/categories', categoriesRouter);
+app.use('/', orderRouter)
 
 
 

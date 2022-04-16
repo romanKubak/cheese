@@ -103,6 +103,9 @@ export default function MyOneProduct({product}) {
       >
         <Fade in={open}>
           <Box sx={style}>
+                <button type="secondary" htmlType="submit" className={styles.btn_submit_formADDProduct} onClick={handleClose} >
+                  x
+                </button>
           <Form
                 name="validate_other"
                 {...formItemLayout}
@@ -114,9 +117,6 @@ export default function MyOneProduct({product}) {
                   rate: 3.5,
                 }}>
                   <div className={styles.btn_close}>
-                    <Button type="secondary" htmlType="submit" className={styles.btn_submit_formADDProduct}>
-                      x
-                    </Button>
                   </div>
                   <div className={styles.photo_Box}>
                     <img src={process.env.REACT_APP_API_URL + product.img} alt='...'>

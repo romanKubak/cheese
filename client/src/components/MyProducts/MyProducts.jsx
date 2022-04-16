@@ -12,11 +12,11 @@ export default function MyProducts() {
   console.log(myProduct);
   console.log(userID);
 
-  useEffect( () => {
-    if(userID) {
-      dispatch(allMyProducts(userID))
-    }
-  },[userID, dispatch])
+  // useEffect( () => {
+  //   if(userID) {
+  //     dispatch(allMyProducts(userID))
+  //   }
+  // },[userID, dispatch])
 
   return (
     <div className={styles.main_box}>
