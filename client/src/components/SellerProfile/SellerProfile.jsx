@@ -6,12 +6,15 @@ import FormComment from '../FormComment/FormComment'
 import SellerProduct from '../SellerProduct/SellerProduct'
 import {allComments} from '../../redux/actions/userAC'
 import Comment from '../Comment/Comment'
+import { Rate } from 'antd';
 
 export default function SellerProfile() {
   const dispatch = useDispatch()
   const {id} = useParams()
+  const rating = useSelector(state => state.rating)
   const [form, setForm] = useState(false );
   const user = useSelector(state => state.user)
+  console.log(Number(rating))
 
   const myProduct = useSelector(state => state.myProduct)
   const comments = useSelector(state => state.comments)
@@ -39,6 +42,9 @@ export default function SellerProfile() {
     null
     
   }
+   
+  <h4>Рейтинг: {rating}<Rate allowHalf disabled value={Number(rating)} /></h4>
+
     {form ? <FormComment setForm={setForm}/>: null}
     {myProduct.length ? myProduct.map(product => 
       <SellerProduct key={product.id} product={product}/>

@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     text: DataTypes.TEXT,
     user_id: DataTypes.INTEGER,
     user_name: DataTypes.STRING,
+    rating: DataTypes.NUMERIC,
   }, {
     sequelize,
     modelName: 'Comment',

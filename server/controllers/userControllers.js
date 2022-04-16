@@ -75,8 +75,16 @@ const getUsers = async (req, res, next) => {
 
 const newCommentUser = async (req, res, next) => {
 try {
-  const comment = await Comment.create({user_name:req.body.user, text:req.body.text, user_id:req.params.id})
-  res.json(comment)
+  console.log(typeof req.body.rating);
+  const comment = await Comment.create({user_name:req.body.user, text:req.body.text, rating:req.body.rating,user_id:req.params.id})
+  const commentsArr = await Comment.findAll({where:{user_id:req.params.id},raw:true})
+ const rating = commentsArr.map(el => el.rating)
+  const newRating = Number(rating.reduce((acc, el) => acc + Number(el), 0)/ rating.length).toFixed(2) || 0
+  const user = await User.findOne({where: {id:req.params.id}})
+  await user.update({rating:newRating})
+  
+
+  res.json({comment,newRating})
 } catch (error) {
   console.log(error);
 }
@@ -85,7 +93,8 @@ try {
 const commentUser = async (req, res, next) => {
 try {
   const comments = await Comment.findAll({where:{user_id:req.params.id}})
-  res.json(comments)
+  const user = await User.findOne({where: {id:req.params.id}, attributes:['name','rating']})
+  res.json({comments,user})
 } catch (error) {
   console.log(error);
 }

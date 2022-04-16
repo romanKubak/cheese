@@ -3,6 +3,7 @@ import React from 'react'
 import { Form, Input, Button,  } from 'antd';
 import axios from 'axios'
 import {useParams} from 'react-router-dom'
+import { Rate } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import {newComment} from '../../redux/actions/userAC'
 
@@ -11,7 +12,7 @@ export default function FormComment({setForm}) {
   const user = useSelector(state => state.user);
   const dispatch = useDispatch();
     const onFinish = (values) => {
-     
+     console.log(values);
      dispatch(newComment({id,values,user:user.name}))
         setForm(false)
   
@@ -41,6 +42,14 @@ export default function FormComment({setForm}) {
         rules={[{ required: true, message: 'Please input your comment!' }]}
       >
         <Input />
+      </Form.Item>
+
+      <Form.Item
+       label="Rating"
+       name="rating"
+      >
+
+<Rate allowHalf defaultValue={0}></Rate>
       </Form.Item>
 
 
