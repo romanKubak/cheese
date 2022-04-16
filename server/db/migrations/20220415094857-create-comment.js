@@ -21,6 +21,9 @@ module.exports = {
       user_name: {
         type: Sequelize.STRING,
       },
+      rating: {
+        type: Sequelize.NUMERIC,
+      },
      
       createdAt: {
         allowNull: false,

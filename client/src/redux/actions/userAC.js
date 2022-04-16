@@ -70,22 +70,31 @@ export const addComment = (comment) => {
 
 
 export const newComment = ({values,id,user}) => async(dispatch) => {
-
-  $api.post(`/comment/new/${id}`,{text:values.title, user:user})
+console.log(values);
+  $api.post(`/comment/new/${id}`,{text:values.title, rating:values.rating,user:user})
   .then((response) => {
-    
-    dispatch(addComment(response.data))
+    console.log(response);
+    dispatch(setRating(response.data.newRating))
+    dispatch(addComment(response.data.comment))
    
   })
 }
+export const setRating = (rating) => {
+  return {type: 'SET_RATING', payload: rating}
+}
 
+
+export const setSeller = (seller) => {
+  return {type: 'SET_SELLER', payload: seller}
+}
 
 export const allComments = (id) => async(dispatch) => {
   
   $api.get(`/comments/${id}`)
   .then((response) => {
-
-    dispatch(setComments(response.data))
+   dispatch(setSeller(response.data.user))
+   dispatch(setRating(response.data.user.rating))
+    dispatch(setComments(response.data.comments))
    
   })
 }

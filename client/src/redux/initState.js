@@ -9,4 +9,6 @@ export const initState = {
   sub: [],
   comments: [],
   waitingList: [],
+  rating: 0,
+  seller : {},
 };

@@ -17,6 +17,9 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
+      rating: {
+        type: Sequelize.NUMERIC
+      },
     
       createdAt: {
         allowNull: false,
