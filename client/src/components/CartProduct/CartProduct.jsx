@@ -1,20 +1,24 @@
-import React from 'react'
+import React, { useCallback, useMemo } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { deleteOneFromCart } from '../../redux/actions/cartAC'
+import { buyOneFromCart } from '../../redux/actions/cartAC'
 import styles from './style.module.css'
 
 export default function CartProduct({product}) {
 
   const dispatch = useDispatch()
   const buyerID = useSelector(state => state.user.id)
+  const navigate = useNavigate()
 
   const deleteOne = () => {
-    dispatch(deleteOneFromCart(product.id))
+    dispatch(deleteOneFromCart(buyerID))
   }
 
-  const buyOne = () => {
+  const buyOne = async () => {
     console.log('buyOne', product.id);
-    // dispatch(deleteOneFromCart(product))
+    dispatch(buyOneFromCart({buyerID: buyerID, productID: product.id, sellerID: product.seller_id}))
+    navigate(`/profile/${buyerID}`)
   }
 
   return (

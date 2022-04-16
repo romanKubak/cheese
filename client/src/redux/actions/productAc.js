@@ -6,8 +6,11 @@ export const addProduct = (formData) => async (dispatch) =>{
     withCredentials: true,
   })
   .then((data) => {
-    console.log('data --> ', data);
+    dispatch(getOneProduct(data.data))
   })
+}
+export const getOneProduct = (product) => {
+  return {type: 'GET_PRODUCT', payload: product}
 }
 
 export const updateProduct = (formData) => async (dispatch) =>{

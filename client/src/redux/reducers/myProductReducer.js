@@ -4,6 +4,8 @@ export const myProductReducer = (state = initState, action)=>{
   const { type, payload } = action;
 
   switch (type) {
+    case 'GET_PRODUCT':
+      return [...state, payload]
     case 'SET_MY_PRODUCT':
       return payload;
     case 'REMOVE_MY_PRODUCT':

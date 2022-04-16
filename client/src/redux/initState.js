@@ -8,4 +8,5 @@ export const initState = {
   myProduct: [],
   sub: [],
   comments: [],
+  waitingList: [],
 };

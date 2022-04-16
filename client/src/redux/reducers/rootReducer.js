@@ -12,6 +12,7 @@ import {cartReducer} from './cartReducer'
 import {productReducer} from './productReducer'
 import {categoryReducer} from './categoryReducer'
 import {myProductReducer} from './myProductReducer'
+import {waitingListReducer} from './waitingListReducer'
 
 export const rootReducer = combineReducers({
   user: userReducer,
@@ -23,4 +24,5 @@ export const rootReducer = combineReducers({
   myProduct: myProductReducer,
   sub: subReducer,
   comments: commentsReducer,
+  waitingList: waitingListReducer,
 });
