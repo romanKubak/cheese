@@ -12,7 +12,6 @@ export default function ProductFilter({filter}) {
   
   const filteredProducts = product.filter(el=> el.name.toLowerCase().includes(input.toLowerCase()))
   
-  console.log(filter);
 
   useEffect(() => {
     if (!filter) {

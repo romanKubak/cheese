@@ -12,10 +12,8 @@ export default function FormComment({setForm}) {
   const user = useSelector(state => state.user);
   const dispatch = useDispatch();
     const onFinish = (values) => {
-     console.log(values);
      dispatch(newComment({id,values,user:user.name}))
         setForm(false)
-  
     };
   
     const onFinishFailed = (errorInfo) => {

@@ -12,7 +12,6 @@ export default function OneProductToSend({product}) {
   const sellerID = useSelector(state => state.user.id)
 
   const confirmSendProduct = () => {
-    // console.log('Подтвердить отправку', 'seller_id:' + sellerID, 'productID:' + product.id);
     dispatch(confirmSendProductAC({seller_id: sellerID, productID: product.id}))
   }
 

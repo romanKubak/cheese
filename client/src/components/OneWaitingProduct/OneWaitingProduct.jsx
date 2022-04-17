@@ -11,7 +11,6 @@ export default function OneWaitingProduct({product}) {
   const userID = useSelector(state => state.user.id)
 
   const confirmReceiptOfProduct = () => {
-    console.log('Подтвердить получение');
     dispatch(confirmReceiptProductAC({user_id: userID, productID: product.id}))
   }
 
@@ -25,8 +24,10 @@ export default function OneWaitingProduct({product}) {
       </div>
       <ul className="list-group list-group-flush">
         <li className="list-group-item">{product.price}</li>
-        
-        <button className="btn btn-primary" onClick={confirmReceiptOfProduct}>Подтвердить получение</button>
+        {product.statusSeller
+          ? <button className="btn btn-primary" onClick={confirmReceiptOfProduct}>Подтвердить получение</button>
+          : <button className="btn btn-disable" onClick={confirmReceiptOfProduct}>Ожидается отправка</button>
+          }
       </ul>
     </div>
   </div>

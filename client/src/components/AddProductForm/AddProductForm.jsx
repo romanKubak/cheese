@@ -16,8 +16,6 @@ export default function AddProductForm() {
 
   const [img, setImg] = useState('')
   const [avatar, setAvatar] = useState('')
-  // console.log('img -->', img)
-  console.log('avatar --> ', avatar);
 
   const sendFile = useCallback( async () => {
     const data = new FormData()
@@ -26,8 +24,6 @@ export default function AddProductForm() {
       name: 'roman',
       email: 'pass'
     }
-    // data.append('user', {...user})
-    console.log('data ----> ', data);
 
     await axios.post('http://localhost:3001/upload', {data, user}, {
       headers: {

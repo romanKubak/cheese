@@ -45,6 +45,7 @@ router.post('/sendProduct', async (req, res) => {
     const {seller_id, productID} = req.body;
     const thisOrder = await Order.findOne({where: {seller_id: seller_id, product_id: productID}})
     const thisProduct = await Product.findOne({where: {id: productID}})
+    await thisProduct.update({statusSeller: true})
     await thisOrder.update({statusSeller: true})
     console.log('thisOrder', thisOrder);
     res.json(thisProduct)
