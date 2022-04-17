@@ -13,8 +13,10 @@ import {productReducer} from './productReducer'
 import {categoryReducer} from './categoryReducer'
 import {myProductReducer} from './myProductReducer'
 import {waitingListReducer} from './waitingListReducer'
+import {waitingListToSendReducer} from './waitingListToSendReducer'
 import {ratingReducer} from './ratingReducer'
 import {sellerReducer} from './sellerReducer'
+import {doneSendingReducer} from './doneSendingReducer'
 
 export const rootReducer = combineReducers({
   user: userReducer,
@@ -27,6 +29,8 @@ export const rootReducer = combineReducers({
   sub: subReducer,
   comments: commentsReducer,
   waitingList: waitingListReducer,
+  waitingListToSend: waitingListToSendReducer,
   rating: ratingReducer,
   seller: sellerReducer,
+  doneSending: doneSendingReducer,
 });

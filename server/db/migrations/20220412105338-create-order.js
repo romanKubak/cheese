@@ -29,8 +29,13 @@ module.exports = {
           key: 'id',
         }
       },
-      status: {
-        type: Sequelize.STRING
+      statusClient: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+      },
+      statusSeller: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,

@@ -24,10 +24,10 @@ function Profile() {
   const [showForm, setShowForm] = useState(false)
   
   useEffect(() => {
-    dispatch(getCategories())
-    dispatch(getWatingList(id))
-
+    
     if(user.id) {
+      dispatch(getCategories())
+      dispatch(getWatingList(id))
       dispatch(allMyProducts(user.id))
     }
 
@@ -41,7 +41,7 @@ function Profile() {
       <>
         
           <button type="button" className="btn btn-primary" onClick={() => showFrom()}>Добавить товар</button>
-          <Link to='/profile/myProducts' type='button' className="btn btn-primary">Мои продукты</Link>
+          <Link to='/profile/mySales' type='button' className="btn btn-primary">Мои продажи</Link>
           
     
       {showForm 
