@@ -11,7 +11,9 @@ import MyOneProduct from '../MyOneProduct/MyOneProduct'
 import {getCategories} from '../../redux/actions/categoriesAC'
 import { allMyProducts } from '../../redux/actions/productAc'
 import {getWatingList} from '../../redux/actions/cartAC'
+import {getDoneList} from '../../redux/actions/cartAC'
 import OneWaitingProduct from '../OneWaitingProduct/OneWaitingProduct';
+import OneSendingProduct from '../OneSendingProduct/OneSendingProduct';
 
 function Profile() {
     
@@ -19,6 +21,7 @@ function Profile() {
   const user = useSelector(state => state.user);
   const myProduct = useSelector(state => state.myProduct)
   const myWaitingList = useSelector(state => state.waitingList)
+  const myReceiptProducts = useSelector(state => state.receiptProducts)
 
   const dispatch = useDispatch();
   const [showForm, setShowForm] = useState(false)
@@ -28,6 +31,7 @@ function Profile() {
     if(user.id) {
       dispatch(getCategories())
       dispatch(getWatingList(id))
+      dispatch(getDoneList(id))
       dispatch(allMyProducts(user.id))
     }
 
@@ -67,8 +71,15 @@ function Profile() {
           </div >
 
           <div className={styles.main_box}>
-            <div>Мои покупки -------</div>
-            {'Тут должны быть выполненные заказы'}
+            <div className={styles.title}>
+              Мои покупки -------
+            </div>
+            <div className={styles.products}>
+              {myReceiptProducts.length
+                ? myReceiptProducts.map(product => <OneSendingProduct key={product.id} product={product}/>)
+                :null
+              }
+            </div>
           </div>
       </>
     )

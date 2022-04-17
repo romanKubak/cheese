@@ -16,7 +16,7 @@ router.post('/waitingList/:id', async (req, res) => {
   try {
     const {id} = req.params
     const searchWaitingList = await Order.findAll({
-      where: {user_id: id},
+      where: {user_id: id, statusClient: false},
       include: Product
     })
     const waitingList = searchWaitingList.map((el) => el.Product)
@@ -62,6 +62,33 @@ router.post('/getDoneSendingProducts/:id', async (req, res) => {
     })
     const doneListToSending = searchDoneListToSend.map((el) => el.Product)
     res.json(doneListToSending)
+  } catch (error) {
+    console.log(error);
+  }
+})
+
+router.post('/getReceiptProducts/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+    const searchDoneListToSend = await Order.findAll({
+      where: {user_id: id, statusClient: true},
+      include: Product
+    })
+    const doneListToSending = searchDoneListToSend.map((el) => el.Product)
+    res.json(doneListToSending)
+  } catch (error) {
+    console.log(error);
+  }
+})
+
+router.post('/receiptProduct', async (req, res) => {
+  try {
+    const {user_id, productID} = req.body;
+    const thisOrder = await Order.findOne({where: {user_id: user_id, product_id: productID}})
+    const thisProduct = await Product.findOne({where: {id: productID}})
+    await thisOrder.update({statusClient: true})
+    console.log('thisOrder', thisOrder);
+    res.json(thisProduct)
   } catch (error) {
     console.log(error);
   }

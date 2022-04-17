@@ -21,7 +21,6 @@ export default function MySales() {
 
   useEffect( () => {
     if(userID) {
-      // dispatch(allMyProducts(userID))
       dispatch(getWatingListToSend(userID))
       dispatch(getDoneSendingProducts(userID))
     }

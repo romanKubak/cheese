@@ -17,6 +17,7 @@ import {waitingListToSendReducer} from './waitingListToSendReducer'
 import {ratingReducer} from './ratingReducer'
 import {sellerReducer} from './sellerReducer'
 import {doneSendingReducer} from './doneSendingReducer'
+import {doneReceiptReducer} from './doneReceiptReducer'
 
 export const rootReducer = combineReducers({
   user: userReducer,
@@ -33,4 +34,5 @@ export const rootReducer = combineReducers({
   rating: ratingReducer,
   seller: sellerReducer,
   doneSending: doneSendingReducer,
+  receiptProducts: doneReceiptReducer,
 });

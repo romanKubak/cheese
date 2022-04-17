@@ -11,6 +11,7 @@ export const initState = {
   waitingList: [],
   waitingListToSend: [],
   doneSending: [],
+  receiptProducts: [],
   rating: 0,
   seller : {},
 };

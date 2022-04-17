@@ -104,3 +104,30 @@ export const getDoneSendingProducts = (id) => async(dispatch) => {
 export const setDoneSendingProducts = (doneProductsToSend) => {
   return {type: 'SET_SENDING_PRODUCTS', payload: doneProductsToSend}
 }
+
+// Подтверждение клиентом получения товаров
+export const confirmReceiptProductAC = (data) => async (dispatch) => {
+  axios.post(`http://localhost:3001/receiptProduct`, data)
+    .then((data) => {
+      dispatch(removeOneFromWaitingListClient(data.data.id))
+      dispatch(pushReceiptProduct(data.data))
+    })
+}
+export const removeOneFromWaitingListClient = (productId) => {
+  return {type: 'REMOVE_WAITING_LIST', payload: productId}
+}
+
+export const getDoneList = (id) => async(dispatch) => {
+  axios.post(`http://localhost:3001/getReceiptProducts/${id}`)
+    .then((data) => {
+      dispatch(setReceiptProducts(data.data))
+    })
+}
+
+export const setReceiptProducts = (receiptProducts) => {
+  return {type: 'SET_RECEIPT_PRODUCTS', payload: receiptProducts}
+}
+
+export const pushReceiptProduct = (product) => {
+  return {type: 'ADD_RECEIPT_PRODUCTS', payload: product}
+}

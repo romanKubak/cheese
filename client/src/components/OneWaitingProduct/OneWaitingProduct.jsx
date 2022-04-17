@@ -2,14 +2,17 @@ import React,{ useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styles from './style.module.css'
 
-
+//? dispatch
+import {confirmReceiptProductAC} from '../../redux/actions/cartAC'
 
 export default function OneWaitingProduct({product}) {
 
   const dispatch = useDispatch()
+  const userID = useSelector(state => state.user.id)
 
-  const getStatusDone = () => {
+  const confirmReceiptOfProduct = () => {
     console.log('Подтвердить получение');
+    dispatch(confirmReceiptProductAC({user_id: userID, productID: product.id}))
   }
 
   return (
@@ -23,7 +26,7 @@ export default function OneWaitingProduct({product}) {
       <ul className="list-group list-group-flush">
         <li className="list-group-item">{product.price}</li>
         
-        <button className="btn btn-primary" onClick={getStatusDone}>Подтвердить получение</button>
+        <button className="btn btn-primary" onClick={confirmReceiptOfProduct}>Подтвердить получение</button>
       </ul>
     </div>
   </div>
