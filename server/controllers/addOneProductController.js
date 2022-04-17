@@ -14,7 +14,7 @@ class AddOneProductController {
       img.mv(path.resolve(__dirname, '..', 'static', fileName))
   
       const product = await Product
-        .create({name, description, price, img: fileName, subCategory_id: thisSubCategory.id, seller_id: userId});
+        .create({name, description, price, img: fileName, subCategory_id: thisSubCategory.id, seller_id: userId, statusSeller: false, statusClient: false});
       return res.json(product)
     } catch (error) {
       console.log(error);

@@ -9,6 +9,9 @@ export const initState = {
   sub: [],
   comments: [],
   waitingList: [],
+  waitingListToSend: [],
+  doneSending: [],
+  receiptProducts: [],
   rating: 0,
   seller : {},
 };

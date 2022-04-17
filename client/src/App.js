@@ -10,7 +10,7 @@ import SignIn from './components/SignIn/SignIn';
 import Profile from './components/Profile/Profile';
 import ShoppingCart from './components/ShoppingCart/ShoppingCart';
 import MainPage from './components/MainPage/MainPage';
-import MyProducts from './components/MyProducts/MyProducts';
+import MySales from './components/MySales/MySales';
 import SubCategories from './components/SubCategories/SubCategories';
 import ShowAllSubProducts from './components/ShowAllSubProducts/ShowAllSubProducts';
 import SellerProfile from './components/SellerProfile/SellerProfile';
@@ -49,7 +49,7 @@ function App() {
         <Route path='/profile/:id' element={< Profile/> } /> 
         <Route path='/cart/:id' element={< ShoppingCart/> } /> 
         <Route path='/category/:id' element={< SubCategories/> } /> 
-        <Route path='profile/myProducts' element={ <MyProducts /> }/>
+        <Route path='profile/mySales' element={ <MySales /> }/>
         <Route path='/sub/:id' element={ <ShowAllSubProducts /> }/>
         <Route path='/seller/:id' element={ <SellerProfile /> }/>
         {/* {user.email? <Route path='/' element={ <Game /> } /> : <Route path='/' element={ <SignIn /> } />} */}

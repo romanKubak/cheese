@@ -16,7 +16,6 @@ export default function CartProduct({product}) {
   }
 
   const buyOne = async () => {
-    console.log('buyOne', product.id);
     dispatch(buyOneFromCart({buyerID: buyerID, productID: product.id, sellerID: product.seller_id}))
     navigate(`/profile/${buyerID}`)
   }

@@ -33,9 +33,6 @@ if (value === 'Сначала дорогие'){
         showSearch
         placeholder="Фильтр по цене"
         optionFilterProp="children"
-       
-       
-        // onClick={(e)=> console.log(e.target.title)}
         onChange={(value)=> search(value)}
         // filterOption={(input, option) =>
         //   option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0

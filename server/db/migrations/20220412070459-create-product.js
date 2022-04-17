@@ -20,8 +20,13 @@ module.exports = {
       img: {
         type: Sequelize.STRING
       },
-      statusDone: {
+      statusClient: {
         type: Sequelize.BOOLEAN,
+        allowNull: false,
+      },
+      statusSeller: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
       },
       subCategory_id: {
         type: Sequelize.INTEGER,
