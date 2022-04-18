@@ -4,7 +4,7 @@ const { Op } = require('sequelize');
 
 router.get("/all", async (req, res) => {
   try {
-    const products = await Product.findAll();
+    const products = await Product.findAll({where: {statusClient: false}});
     res.json(products);
   } catch (err) {
     console.log(err);
