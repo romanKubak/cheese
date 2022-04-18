@@ -9,6 +9,7 @@ import ProductFilter from '../ProductFilter/ProductFilter'
 import styles from './style.module.css'
 import CategoryFilter from '../CategoryFilter/CategoryFilter'
 import AllCategories from '../AllCategories/AllCategories'
+import { Link } from 'react-router-dom'
 
 
 export default function MainPage() {
@@ -38,12 +39,18 @@ const refresh = ()=> {
 
 
   return (
+    <>
+    
+      <div className={styles.navigation}>
+        / <Link to='/main' className={styles.link}>Главная</Link>
+      </div>
     <div className={styles.main_box}>
       {categories.length 
         ? categories.map(category => <AllCategories key={category.id} category={category}/>)
         : <h3>Не найдено ни одной категории</h3>
       }
     </div>
+    </>
   )
 }
 
