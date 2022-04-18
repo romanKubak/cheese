@@ -1,5 +1,6 @@
 
 import { Link } from 'react-router-dom';
+import styles from './styles.module.css'
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -50,7 +51,7 @@ export default function Header() {
 
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{backgroundColor:'black'}}>
-        <Toolbar>
+        <Toolbar className={styles.Toolbar}>
           <Box
             sx={{
               '& > :not(style)': {
@@ -58,30 +59,30 @@ export default function Header() {
                 
               },
             }}
-          >
+          > 
 
 
             {/* <HomeIcon onClick={() => navigate('/')} /> */}
 
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} onClick={() => redir()}>
+
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, width:'200px', height:'26px'}} onClick={() => redir()}>
             КОМИКСИОНКА
           </Typography>
-          
-          </Box>
-
+           </Box>
+              <div className={styles.container}>
           {user.email ?
             (
-              <>
-                <h6 styles={{ marginRigth: '10px' }}>Привет {user.name}</h6>
+              <div className={styles.userInfo}>
+                <div style={{ color: 'white' }}>Привет {user.name}</div>
 
 
-                <ShoppingCartIcon type='button' style={{ marginRight: '20px' }} onClick={() => navigate(`/cart/${user.id}`)} />
+                <ShoppingCartIcon type='button' style={{ marginRight: '20px',marginLeft: '20px' }} onClick={() => navigate(`/cart/${user.id}`)} />
 
 
 
                 <PersonIcon type='button' style={{ marginRight: '20px' }} onClick={() => profile()} />
                 <LogoutIcon type='button' onClick={() => logout()} />
-              </>
+              </div>
             )
             :
             (<>
@@ -89,6 +90,7 @@ export default function Header() {
               <Link to='/signin' type='button' className="btn btn-primary">Войти</Link>
             </>)
           }
+          </div>
 
         </Toolbar>
       </AppBar>

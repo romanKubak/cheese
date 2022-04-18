@@ -19,7 +19,7 @@ router.get('/allMyProduct/:id', async (req, res) => {
     const allMyProducts = await Product.findAll({include:{
       model:User, 
       attributes: ['name', 'id']
-    },where: {seller_id: id}})
+    },where: {seller_id: id, statusClient: false}})
     // console.log(allMyProducts);
     res.json(allMyProducts)
   } catch (error) {
@@ -36,13 +36,13 @@ router.post('/sub/:id', async (req, res) => {
       allMyProducts = await Product.findAll({include:{
         model:User, 
         attributes: ['name', 'id']
-      },where: {subCategory_id: id}, order:[['price','DESC']]})
+      },where: {subCategory_id: id, statusClient: false}, order:[['price','DESC']]})
    }else if(req.body.value === 2) {
 
     allMyProducts = await Product.findAll({include:{
       model:User, 
       attributes: ['name', 'id']
-    },where: {subCategory_id: id}, order:[['price','ASC']]})
+    },where: {subCategory_id: id, statusClient: false}, order:[['price','ASC']]})
    }else {
     allMyProducts = await Product.findAll({include:{
       model:User, 

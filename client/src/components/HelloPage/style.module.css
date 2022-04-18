@@ -1,8 +1,22 @@
-.buttonNARR{
-  background-color: red;
-  margin-top: 30px;
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
 }
-
-/* .buttonN :hover {
-background-color: green;
+.containerImage {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+/* .container div {
+  margin-top: 105px
 } */
+.marvel {
+  display: flex;
+  flex-direction: column;
+  font-size: 90pt;
+
+
+align-items: center;
+ }
