@@ -15,7 +15,7 @@ export default function CartProduct({product}) {
   const navigate = useNavigate()
 
   const deleteOne = () => {
-    dispatch(deleteOneFromCart(buyerID))
+    dispatch(deleteOneFromCart(product.id))
   }
 
   const buyOne = async () => {
