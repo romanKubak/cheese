@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 import {getFilterProducts} from '../../redux/actions/productAc'
 import {getProduct,showAllSubProducts} from '../../redux/actions/productAc'
+import styles from './style.module.css'
 
 import {useParams} from 'react-router-dom'
+
 export default function ProductFilter({filter}) {
   const [input, setInput] = useState('');
   const dispatch = useDispatch();
@@ -28,8 +30,15 @@ export default function ProductFilter({filter}) {
   }, [input]);
 
   return (
-    <div>
-  <input type="text" className="form-control" id="word" name="word" value={input ?? ''} onChange={(e) => setInput(e.target.value)} />
+    <div className={styles.search_box}>
+      <input 
+        type="text" 
+        className="form-control" 
+        id="word" name="word" 
+        value={input ?? ''} 
+        onChange={(e) => setInput(e.target.value)} 
+        placeholder='Поиск по названию'
+        />
     </div>
   )
 }

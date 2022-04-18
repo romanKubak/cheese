@@ -10,21 +10,12 @@ navigate(`/sub/${id}`)
   }
   return (
     <div>
-    <div className={styles.main_box}>
-    <div className="card" style={{width: '18rem'}}>
-    <img src={process.env.REACT_APP_API_URL + sub.img} className={styles.card_img_top} alt="..."/>
-      <div className="card-body">
+    <div className={styles.main_box} onClick={()=> add(sub.id)}>
+    <div className="cards" style={{width: '18rem'}}>
+      <img src={process.env.REACT_APP_API_URL + sub.img} className={styles.card_img_top} alt="..."/>
+      <div className={styles.card_body}>
         <h5 className="card-title">{sub.title}</h5>
-       
       </div>
-      <ul className="list-group list-group-flush">
-        
-      
-      <button className="btn btn-primary" onClick={()=> add(sub.id)}>Подробнее</button>
-          
-       
-       
-      </ul>
     </div>
   </div>
   </div>

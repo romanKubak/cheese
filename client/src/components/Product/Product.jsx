@@ -3,6 +3,8 @@ import styles from './style.module.css'
 import {addToCart} from '../../redux/actions/cartAC'
 import {useParams,useNavigate, Link} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
+import Button from '@mui/material/Button';
+
 
 export default function Product({product}) {
  const user = useSelector(store => store.user)
@@ -18,6 +20,9 @@ export default function Product({product}) {
     }
   }
 
+  const redirect = () => {
+    navigate(`/cart/${user.id}`)
+  }
 
   const repeatProd = []
   cartProducts.map((el) => {
@@ -28,10 +33,10 @@ export default function Product({product}) {
 
   return (
     <div className={styles.main_box}>
-      <div className="card" style={{width: '18rem'}}>
+      <div className={styles.card}>
         <img src={process.env.REACT_APP_API_URL + product.img} className={styles.card_img_top} alt="..."/>
         <div className="card-body">
-          <h5 className="card-title">{product.name}</h5>
+          <h5 className="card-title" >{product.name}</h5>
           <p className="card-text">{product.description}</p>
           {user.id === product.User.id ? 
               <p>Это ваш товар</p>
@@ -42,10 +47,10 @@ export default function Product({product}) {
 
         </div>
         <ul className="list-group list-group-flush">
-          <li className="list-group-item">{product.price}</li>
+          <li className="list-group-item">{product.price} РУБЛЕЙ</li>
           {!repeatProd.length 
-            ?(user.id === product.seller_id ? null : <button className="btn btn-primary" onClick={()=> add()}>Добавить в корзину</button>)
-            : <button className="btn btn-primary" >уже в корзине</button>
+            ?(user.id === product.seller_id ? null : <Button variant="contained" className={styles.btn_onBasket} onClick={()=> add()}>Добавить в корзину</Button>)
+            : <Button variant="contained" className={styles.btn_navigate_on_basket} onClick={redirect}>уже в корзине</Button>
           }
          
         </ul>

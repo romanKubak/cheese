@@ -39,14 +39,9 @@ const refresh = ()=> {
 
   return (
     <div className={styles.main_box}>
-      
-      
-      {categories.length ?
-      <>
-       {categories.map(category => <AllCategories key={category.id} category={category}/>)}
-       </>
-       : <h3>Не найдено ни одной категории</h3>
-      
+      {categories.length 
+        ? categories.map(category => <AllCategories key={category.id} category={category}/>)
+        : <h3>Не найдено ни одной категории</h3>
       }
     </div>
   )
