@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { logUser } from '../../redux/actions/userAC';
+import styles from './style.module.css'
 
 export default function SignIn() {
 
@@ -21,61 +22,64 @@ export default function SignIn() {
   }
 
   return (
-    <div className='singInForm'>
-      <Form
-        name="basic"
-        labelCol={{ span: 8 }}
-        wrapperCol={{ span: 16 }}
-        initialValues={{ remember: true }}
-        onFinish={onFinish}
-        autoComplete="off"
-      >
-        <Form.Item
-          label="Email"
-          name="email"
-          rules={[
-            {
-              required: true,
-              message: 'Введите свой email',
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
 
-        <Form.Item
-          label="Пароль"
-          name="password"
-          rules={[
-            {
-              required: true,
-              message: 'Введите свой password',
-            },
-          ]}
+    <div className={styles.formBox}>
+      <div className={styles.container}>
+        <Form
+          name="basic"
+          labelCol={{ span: 8 }}
+          wrapperCol={{ span: 16 }}
+          initialValues={{ remember: true }}
+          onFinish={onFinish}
+          autoComplete="off"
         >
-          <Input.Password />
-        </Form.Item>
+          <Form.Item
+            label="Email"
+            name="email"
+            rules={[
+              {
+                required: true,
+                message: 'Введите свой email',
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
 
-        <Form.Item
-          wrapperCol={{
-            offset: 8,
-            span: 16,
-          }}
-        >
-          <Button type="primary" htmlType="submit"> Войти </Button>
-        </Form.Item>
-        <h6>
-          у вас нет аккаунта? 
-        <Link to='/signup'> Зарегистрироваться</Link>
-        </h6>
-        <div>
-          {
-            error.length 
-            ? <h4>{error}</h4> 
-            : null
-          }
-        </div>
-      </Form>
+          <Form.Item
+            label="Пароль"
+            name="password"
+            rules={[
+              {
+                required: true,
+                message: 'Введите свой password',
+              },
+            ]}
+          >
+            <Input.Password />
+          </Form.Item>
+
+          <Form.Item
+            wrapperCol={{
+              offset: 8,
+              span: 16,
+            }}
+          >
+            <Button type="primary" htmlType="submit"> Войти </Button>
+          </Form.Item>
+          <h6>
+            у вас нет аккаунта? 
+          <Link to='/signup'> Зарегистрироваться</Link>
+          </h6>
+          <div>
+            {
+              error.length 
+              ? <h4>{error}</h4> 
+              : null
+            }
+          </div>
+        </Form>
+      </div>
     </div>
   );
 };

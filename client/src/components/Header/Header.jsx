@@ -86,8 +86,8 @@ export default function Header() {
             )
             :
             (<>
-              <Link to='/signup' type='button' style={{ marginRight: '20px' }} className="btn btn-primary">Регистрация</Link>
-              <Link to='/signin' type='button' className="btn btn-primary">Войти</Link>
+              <Link to='/signup' type='button' style={{ marginRight: '20px' }} className={styles.btn_header}>Регистрация</Link>
+              <Link to='/signin' type='button' style={{marginRight: '76px'}} className={styles.btn_header}>Войти</Link>
             </>)
           }
           </div>
