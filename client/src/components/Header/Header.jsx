@@ -50,7 +50,7 @@ export default function Header() {
 
 
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{backgroundColor:'black'}}>
+      <AppBar position="static" style={{backgroundColor:'rgba(25, 25, 25, 1)'}}>
         <Toolbar className={styles.Toolbar}>
           <Box
             sx={{
@@ -65,7 +65,7 @@ export default function Header() {
             {/* <HomeIcon onClick={() => navigate('/')} /> */}
 
 
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, width:'200px', height:'26px'}} onClick={() => redir()}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, width:'200px', height:'26px',fontWeight:'bold',color: 'rgba(243, 243, 243, 1)'}} onClick={() => redir()}>
             КОМИКСИОНКА
           </Typography>
            </Box>
