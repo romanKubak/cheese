@@ -44,7 +44,7 @@ export const buyOneFromCart = (data) => async(dispatch) => {
   axios.post(`http://localhost:3001/setOrder`, data)
   .then((data) => {
     dispatch(deleteOneProdCart(data.data.newOrder.product_id))
-    dispatch(addProductToWaitingList(data.data.unComplitetProductInOrder))
+    // dispatch(addProductToWaitingList(data.data.unComplitetProductInOrder))
   })
 }
 
