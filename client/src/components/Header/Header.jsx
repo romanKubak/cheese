@@ -65,7 +65,7 @@ export default function Header() {
             {/* <HomeIcon onClick={() => navigate('/')} /> */}
 
 
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, width:'200px', height:'26px',fontWeight:'bold',color: 'rgba(243, 243, 243, 1)'}} onClick={() => redir()}>
+          <Typography className={styles.logo_header} variant="h6" component="div" sx={{ flexGrow: 1, width:'200px', height:'26px',fontWeight:'bold',color: 'rgba(243, 243, 243, 1)'}} onClick={() => redir()}>
             КОМИКСИОНКА
           </Typography>
            </Box>

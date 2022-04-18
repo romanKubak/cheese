@@ -43,6 +43,10 @@ function Profile() {
 
     return (
       <>
+        <div className={styles.navigation}>
+            \ <Link to='/main' className={styles.link}>  ГЛАВНАЯ  </Link>
+            \ <Link to={`/profile/${user.id}`} className={styles.link}>  ПРОФИЛЬ  </Link>
+        </div>
         
           <button type="button" className="btn btn-primary" onClick={() => showFrom()}>Добавить товар</button>
           <Link to='/profile/mySales' type='button' className="btn btn-primary">Мои продажи</Link>

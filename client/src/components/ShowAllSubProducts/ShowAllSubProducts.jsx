@@ -34,13 +34,13 @@ export default function ShowAllSubProducts() {
   const thisCategory = allCategory.filter(el => el.id === +thisCategoryID)
 
   return (
-    <div>
+    <div className={styles.ShowAllSubProducts_container}>
       {thisCategory.length 
         ? (
           <div className={styles.navigation}>
-            \ <Link to='/main' className={styles.link}>Главная  </Link>
-            \ <Link to={`/category/${thisCategoryID}`} className={styles.link}>{thisCategory[0].name}  </Link>
-            \ <Link to={`/sub/${id}`} className={styles.link}>{thisSubCategory[0].title}</Link>
+            \ <Link to='/main' className={styles.link}>  ГЛАВНАЯ  </Link>
+            \ <Link to={`/category/${thisCategoryID}`} className={styles.link}>{  thisCategory[0].name.toUpperCase()}  </Link>
+            \ <Link to={`/sub/${id}`} className={styles.link}>  {thisSubCategory[0].title.toUpperCase()}  </Link>
           </div>
           )
         : null

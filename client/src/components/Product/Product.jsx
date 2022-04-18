@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styles from './style.module.css'
 import {addToCart} from '../../redux/actions/cartAC'
-import {useParams,useNavigate, Link} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import Button from '@mui/material/Button';
 
@@ -36,9 +36,9 @@ export default function Product({product}) {
     <div className={styles.main_box}>
       <div className={styles.card}>
         <img src={process.env.REACT_APP_API_URL + product.img} className={styles.card_img_top} alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title" >{product.name}</h5>
-          <p className="card-text">{product.description}</p>
+        <div className={styles.card_body}>
+          <h5 className={styles.card_title} >{product.name}</h5>
+          <p className={styles.card_text}>{product.description}</p>
           {user.id === product.User.id ? 
               <p>Это ваш товар</p>
           :

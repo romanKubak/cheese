@@ -5,13 +5,24 @@
   align-content: center;
   justify-content: center;
   align-items: center;
+  margin: 0px 100px 0px 100px;
 }
 
 .navigation{
   align-self: start;
-  color: white;
+  color: rgba(114, 114, 114, 1);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 100px;
+  margin-left: 100px;
+  display: flex;
 }
 
 .link{
-  color: white;
+  color: rgba(114, 114, 114, 1);
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.link:hover{
+  color: rgb(190, 190, 190);
 }

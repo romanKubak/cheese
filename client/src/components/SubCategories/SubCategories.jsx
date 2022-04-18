@@ -29,8 +29,8 @@ export default function SubCategories() {
       {thisCategory.length 
       ? (
         <div className={styles.navigation}>
-          / <Link to='/main' className={styles.link}>Главная  </Link>
-          / <Link to={`/category/${id}`} className={styles.link}>{thisCategory[0].name}</Link>
+          \ <Link to='/main' className={styles.link}>  ГЛАВНАЯ  </Link>
+          \ <Link to={`/category/${id}`} className={styles.link}>  {thisCategory[0].name.toUpperCase()}  </Link>
         </div>
         )
       : null
