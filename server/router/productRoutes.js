@@ -47,7 +47,7 @@ router.post('/sub/:id', async (req, res) => {
     allMyProducts = await Product.findAll({include:{
       model:User, 
       attributes: ['name', 'id']
-    },where: {subCategory_id: id}})
+    },where: {subCategory_id: id, statusClient: false}})
      
    }
    

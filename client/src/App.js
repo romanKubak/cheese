@@ -14,6 +14,7 @@ import MySales from './components/MySales/MySales';
 import SubCategories from './components/SubCategories/SubCategories';
 import ShowAllSubProducts from './components/ShowAllSubProducts/ShowAllSubProducts';
 import SellerProfile from './components/SellerProfile/SellerProfile';
+import HelloPage from './components/HelloPage/HelloPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -43,7 +44,8 @@ function App() {
       <Header/>
       <Routes>
         <Route path='/signup' element={ <SignUp /> } />
-        <Route path='/' element={ <MainPage /> } />
+        <Route path='/' element={ <HelloPage /> } />
+        <Route path='/main' element={ <MainPage /> } />
         
         <Route path='/signin' element={ <SignIn /> } />
         <Route path='/profile/:id' element={< Profile/> } /> 
