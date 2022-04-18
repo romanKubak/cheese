@@ -26,11 +26,14 @@ export default function Header() {
 
   const logout = async () => {
     dispatch(logoutUser())
-    navigate('/')
+    navigate('/main')
   }
 
   const profile = () => {
     navigate(`/profile/${user.id}`)
+  }
+  const redir = () => { 
+    navigate(`/main`)
   }
 
 
@@ -46,24 +49,26 @@ export default function Header() {
 
 
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" style={{backgroundColor:'black'}}>
         <Toolbar>
           <Box
             sx={{
               '& > :not(style)': {
                 m: 2,
+                
               },
             }}
           >
 
 
-            <HomeIcon onClick={() => navigate('/')} />
+            {/* <HomeIcon onClick={() => navigate('/')} /> */}
 
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} onClick={() => redir()}>
+            КОМИКСИОНКА
+          </Typography>
+          
           </Box>
 
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-
-          </Typography>
           {user.email ?
             (
               <>
