@@ -6,3 +6,12 @@
   justify-content: center;
   align-items: center;
 }
+
+.navigation{
+  align-self: start;
+  color: white;
+}
+
+.link{
+  color: white;
+}

@@ -32,6 +32,7 @@ export default function Product({product}) {
   })
 
   return (
+    <>
     <div className={styles.main_box}>
       <div className={styles.card}>
         <img src={process.env.REACT_APP_API_URL + product.img} className={styles.card_img_top} alt="..."/>
@@ -56,5 +57,6 @@ export default function Product({product}) {
         </ul>
       </div>
     </div>
+    </>
   )
 }

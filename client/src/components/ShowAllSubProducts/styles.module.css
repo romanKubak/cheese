@@ -15,3 +15,12 @@
 .search{
   align-items: flex-start
 }
+
+.navigation{
+  align-self: start;
+  color: white;
+}
+
+.link{
+  color: white;
+}
