@@ -14,19 +14,24 @@ export default function HelloPage() {
     <div >
     <div className={styles.container}>
         <div className={styles.marvel}>
-        <div style={{}}>MARVEL</div>
-        <div>- DC</div>
-        <div>STAR WARS</div>
+        <div style={{color: 'rgba(183, 60, 55, 1)'}}>MARVEL</div>
+        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+        <div style={{color: 'rgba(243, 243, 243, 1)'}}>&#8211;</div>
+        <div style={{color: 'rgba(51, 116, 234, 1)'}}> DC</div>
+        </div>
+        <div style={{color: 'rgba(243, 243, 243, 1)', paddingLeft: '450px'}}>STAR WARS</div>
         </div>
         <div style={{paddingRight:'80px'}}>
-          <img src = {process.env.REACT_APP_API_URL + 'photo_2022-04-18_21-23-11.jpg'} style={{width:'600px', height:'363px'}}></img>
+          <img src = {process.env.REACT_APP_API_URL + 'photo_2022-04-18_21-23-11.jpg'} style={{width:'700px', height:'413px',paddingTop:'50px'}}></img>
         </div>
         </div>
-      <div>
+      <div className={styles.harry}>
         
-      <div> HARRY POTTER</div>
-      <div>И МНОГОЕ ДРУГОЕ</div>
-       
+      <div style={{color: 'rgba(244, 204, 63, 1)'}}> HARRY POTTER</div>
+      <div style={{display: 'flex', flexDirection: 'row'}}>
+      <div style={{color: 'rgba(243, 243, 243, 1)'}}>И МНОГОЕ </div>
+      <div style={{marginLeft:'30px', color: 'rgba(64, 189, 121, 1)'}}> ДРУГОЕ</div>
+      </div>
         </div>
     
       <Button style={style} variant="contained" onClick={() => redir()}>Перейти к покупкам</Button>
