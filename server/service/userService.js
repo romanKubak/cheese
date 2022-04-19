@@ -13,7 +13,7 @@ const registration = async (name, password, email) => {
     return  ApiError.BadRequest('anymess', 'Пользователь с таким email уже существует')
   } else if(!candidate) {
     const hashPassword = await bcrypt.hash(password, 3)
-    const user = await User.create( {name:name, email:email, password: hashPassword})
+    const user = await User.create( {name:name, email:email, password: hashPassword, rating:0})
     const userDto = new UserDto({email:user.email, id:user.id, name:user.name})
     const tokens = generateToken( { ...userDto } )
     await saveToken(userDto.id, tokens.refreshToken)
