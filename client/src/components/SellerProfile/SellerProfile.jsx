@@ -7,6 +7,7 @@ import SellerProduct from '../SellerProduct/SellerProduct'
 import {allComments} from '../../redux/actions/userAC'
 import Comment from '../Comment/Comment'
 import { Rate } from 'antd';
+import Button from '@mui/material/Button';
 
 import styles from './style.module.css'
 
@@ -47,16 +48,18 @@ export default function SellerProfile() {
             : <h6>Нет ни одного комментария</h6>
           }
 
-          {!repeatComment.length 
-            ? <button variant="outlined" onClick={() => setForm(true)}>Оставить отзыв</button>
-            : null
-          }
-      
-
           {form 
             ? <FormComment setForm={setForm}/>
             : null
           }
+
+          {!repeatComment.length 
+            // ? <button variant="outlined" onClick={() => setForm(true)}>Оставить отзыв</button>
+            ? (form ? null : <Button variant="contained" className={styles.btn_addProduct} onClick={() => setForm(true)}>Оставить отзыв</Button>)
+            : null
+          }
+      
+
         </div>
 
         <div className={styles.seller_products}>

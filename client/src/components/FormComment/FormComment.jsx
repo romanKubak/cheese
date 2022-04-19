@@ -6,6 +6,7 @@ import {useParams} from 'react-router-dom'
 import { Rate } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import {newComment} from '../../redux/actions/userAC'
+import styles from './style.module.css'
 
 export default function FormComment({setForm}) {
   const { id } = useParams();
@@ -21,23 +22,25 @@ export default function FormComment({setForm}) {
     };
 
   return (
-    <div style={{display: 'flex', justifyContent: 'center', marginTop: '100px'}}>
+    <div style={{display: 'flex', justifyContent: 'center', marginTop: '15px', backgroundColor: '#353535', paddingTop: '20px'}}>
 
 
   
     <Form
       name="basic"
-      labelCol={{ span: 8 }}
-      wrapperCol={{ span: 16 }}
+      labelCol={{ span: 8}}
+      wrapperCol={{ span: 16, fontColor: 'white' }}
       initialValues={{ remember: true }}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
       autoComplete="off"
+      className={styles.form_comment}
     >
       <Form.Item
-        label="Comment"
+        label="Отзыв"
         name="title"
         rules={[{ required: true, message: 'Please input your comment!' }]}
+        style={{color: 'white'}}
       >
         <Input />
       </Form.Item>
@@ -45,6 +48,7 @@ export default function FormComment({setForm}) {
       <Form.Item
        label="Rating"
        name="rating"
+       style={{fontColor: 'white'}}
       >
 
 <Rate allowHalf defaultValue={0}></Rate>
