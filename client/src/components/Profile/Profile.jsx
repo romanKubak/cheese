@@ -29,6 +29,7 @@ import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import OneProductToSend from '../OneProductToSend/OneProductToSend';
+import { Rate } from 'antd';
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -130,8 +131,8 @@ function Profile() {
           <div className={styles.profile_info}>
             <h4>{user.name}</h4>
             <h4>Рейтинг: {user.rating}<Rate allowHalf disabled value={Number(user.rating)} /></h4>
-
             <img src={process.env.REACT_APP_API_URL + 'boxIronMan.jpg'} className={styles.profile_img} alt="..."/>
+
           </div>
           <div className={styles.profile_btn}>
             {/* <button type="button" className="btn btn-primary" onClick={() => showFrom()}>Добавить товар</button> */}

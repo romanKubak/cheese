@@ -8,10 +8,13 @@ import {allComments} from '../../redux/actions/userAC'
 import Comment from '../Comment/Comment'
 import { Rate } from 'antd';
 
+import styles from './style.module.css'
+
 export default function SellerProfile() {
   const dispatch = useDispatch()
   const {id} = useParams()
   const rating = useSelector(state => state.rating)
+  const sellerName = useSelector(state => state.seller.name)
   const [form, setForm] = useState(false );
   const user = useSelector(state => state.user)
   console.log(Number(rating))
@@ -33,24 +36,37 @@ export default function SellerProfile() {
   },[id, dispatch])
   return (
     <>
-    {comments.length ? comments.map( (comment) =>  <Comment key={comment.id} comment={comment}/>)
-    :
-    <h3>Нет ни одного комментария</h3>
-    }
-    {!repeatComment.length ? 
-    <button variant="outlined" onClick={() => setForm(true)}>Оставить отзыв</button>:
-    null
-    
-  }
-   
-  <h4>Рейтинг: {rating}<Rate allowHalf disabled value={Number(rating)} /></h4>
+      <div className={styles.seller_container}>
+        <div className={styles.seller_profile_info}>
+        <img src={process.env.REACT_APP_API_URL + 'boxIronMan.jpg'} className={styles.profile_img} alt="..."/>
+        <h6>{sellerName}</h6>
+        <h4>Рейтинг: {rating}<Rate allowHalf disabled value={Number(rating)} /></h4>
+        <h3>Комментарии</h3>
+          {comments.length 
+            ? comments.map( (comment) =>  <Comment key={comment.id} comment={comment}/>)
+            : <h6>Нет ни одного комментария</h6>
+          }
 
-    {form ? <FormComment setForm={setForm}/>: null}
-    {myProduct.length ? myProduct.map(product => 
-      <SellerProduct key={product.id} product={product}/>
-    ) : 
-    null
-    }
+          {!repeatComment.length 
+            ? <button variant="outlined" onClick={() => setForm(true)}>Оставить отзыв</button>
+            : null
+          }
+      
+
+          {form 
+            ? <FormComment setForm={setForm}/>
+            : null
+          }
+        </div>
+
+        <div className={styles.seller_products}>
+          {myProduct.length 
+            ? myProduct.map(product => <SellerProduct key={product.id} product={product}/>) 
+            : null
+          }
+        </div>
+      </div>
+
     </>
   )
 }
