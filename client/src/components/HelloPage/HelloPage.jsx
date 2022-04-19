@@ -30,7 +30,7 @@ export default function HelloPage() {
         
       <p style={{color: 'rgba(244, 204, 63, 1)',textAlign: 'left', paddingLeft: '100px'}}> HARRY POTTER</p>
       <p style={{marginLeft:'0px', color: 'rgba(64, 189, 121, 1)',textAlign: 'center',marginRight:'50px'}}>
-      <span style={{color: 'rgba(243, 243, 243, 1)', marginLeft: '332px', marginBottom: '55px'}}>И МНОГОЕ </span>
+      <span style={{color: 'rgba(243, 243, 243, 1)', marginLeft: '332px', marginBottom: '63px'}}>И МНОГОЕ </span>
       ДРУГОЕ
       </p>
         </div>
