@@ -48,7 +48,7 @@ export default function Product({product}) {
 
         </div>
         <ul className="list-group list-group-flush">
-          <li className="list-group-item">{product.price} РУБЛЕЙ</li>
+          <li className="list-group-item" style={{backgroundColor: 'rgba(243, 243, 243, 1)'}}>{product.price} РУБЛЕЙ</li>
           {!repeatProd.length 
             ?(user.id === product.seller_id ? null : <Button variant="contained" className={styles.btn_onBasket} onClick={()=> add()}>Добавить в корзину</Button>)
             : <Button variant="contained" className={styles.btn_navigate_on_basket} onClick={redirect}>уже в корзине</Button>

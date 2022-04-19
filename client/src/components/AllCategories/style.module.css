@@ -4,7 +4,7 @@
   height: 100%;
   border: none;
   border-radius: 0px;
-  background-color: white;
+  background-color: rgba(243, 243, 243, 1);
 }
 
 .card_img_top{
