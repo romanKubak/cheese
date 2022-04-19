@@ -135,7 +135,8 @@ export default function TestForm({showFrom}) {
                     {
                       required: true,
                       message: 'Ввыберете категорию',
-                    }]}>
+                    }]}
+                    style={{ height: '31px' }}>
 
                   <Select
                     label="Category"
@@ -163,7 +164,8 @@ export default function TestForm({showFrom}) {
                     {
                       required: true,
                       message: 'Ввыберете подкатегорию',
-                    }]}>
+                    }]}
+                    style={{ height: '31px' }}>
 
                   <Select
                     label="Category"

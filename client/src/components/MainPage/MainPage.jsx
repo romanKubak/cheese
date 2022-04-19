@@ -42,7 +42,7 @@ const refresh = ()=> {
     <>
     
       <div className={styles.navigation}>
-        / <Link to='/main' className={styles.link}>Главная</Link>
+        \ <Link to='/main' className={styles.link}>  ГЛАВНАЯ  </Link>
       </div>
     <div className={styles.main_box}>
       {categories.length 

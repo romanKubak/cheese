@@ -38,6 +38,7 @@ if (value === 'Сначала дорогие'){
         //   option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
         // }
         className='lalala'
+
       > 
        <Option  value='Сначала дорогие'  >Сначала дорогие</Option>
        <Option   value ='Сначала дешевые' >Сначала дешевые</Option>

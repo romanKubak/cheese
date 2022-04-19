@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {useParams} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 import {getCart} from '../../redux/actions/cartAC'
 import CartProduct from '../CartProduct/CartProduct'
 
@@ -18,7 +18,11 @@ export default function ShoppingCart() {
   console.log('products', products);
 
   return (
-    <div className={styles.main_box}>      
+    <div className={styles.main_box}>     
+        <div className={styles.navigation}>
+          \ <Link to='/main' className={styles.link}>  ГЛАВНАЯ  </Link>
+          \ <Link to={`/cart/${id}`} className={styles.link}>  КОРЗИНА  </Link>
+        </div> 
       {products.length 
         ? products.map(product => <CartProduct key={product.id} product={product}/>)
         : null

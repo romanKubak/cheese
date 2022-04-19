@@ -5,11 +5,15 @@
   width: 100%;
 }
 
-.search_box input {
+.search_box input{
   border: none;
   border-radius: 2px;
   height: 32px;
   margin-right: 10px;
   width: 570px;
-  margin-left: 30px;
 }
+.search_box input::-webkit-input-placeholder{
+  color: rgb(191 191 191);
+}
+
+

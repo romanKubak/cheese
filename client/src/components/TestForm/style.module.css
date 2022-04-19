@@ -2,13 +2,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px;
+  margin: 20px;
 }
 
 .formBox {
   padding-top: 24px;
   width: 40%;
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+  background-color: white;
 }
 
 .selectInput {
