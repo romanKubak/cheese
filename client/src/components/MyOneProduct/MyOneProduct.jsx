@@ -11,6 +11,10 @@ import Fade from '@mui/material/Fade';
 import { updateProduct } from '../../redux/actions/productAc'
 import { UploadOutlined } from '@ant-design/icons';
 
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
+import BorderColorIcon from '@mui/icons-material/BorderColor';
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -77,17 +81,26 @@ export default function MyOneProduct({product}) {
 
   return (
     <div className={styles.main_box}>
-    <div className="card" style={{width: '18rem'}}>
-      <img src={process.env.REACT_APP_API_URL + product.img} className={styles.card_img_top} alt="..."/>
-      <div className="card-body">
-        <h5 className="card-title">{product.name}</h5>
-        <p className="card-text">{product.description}</p>
-      </div>
-      <ul className="list-group list-group-flush">
-        <li className="list-group-item">{product.price}</li>
-        <button className="btn btn-danger" onClick={() => deleteOne()}>Удалить</button>
-        <button className="btn btn-primary" onClick={handleOpen}>Редактировать</button>
-      </ul>
+      <div className={styles.profile_card} style={{width: '18rem'}}>
+        <img src={process.env.REACT_APP_API_URL + product.img} className={styles.card_img_top} alt="..."/>
+        <div className={styles.box_description}>
+          <div className={styles.card_body}>
+            <h6 className={styles.card_title}>{product.name}</h6>
+          </div>
+          <div className={styles.price_card}>
+            <h6>{product.price}</h6>
+          </div>
+        </div>
+        <div className={styles.btn_group}>
+          {/* <button className="btn btn-danger" onClick={() => deleteOne()}>x</button> */}
+          <IconButton aria-label="delete"onClick={() => deleteOne()}>
+            <DeleteIcon className={styles.btn_icon}  />
+          </IconButton>
+          <IconButton aria-label="delete" onClick={handleOpen}>
+            <BorderColorIcon className={styles.btn_icon}  />
+          </IconButton>
+          {/* <button className="btn btn-primary" onClick={handleOpen}>Р</button> */}
+        </div>
     </div>
     <Modal
         aria-labelledby="transition-modal-title"
