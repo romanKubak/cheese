@@ -7,20 +7,19 @@
 
 
 .marvel {
-  display: flex;
-  flex-direction: column;
+
   font-size: 70pt;
-  justify-content: space-between;
   font-weight:bold;
+  line-height: 0.5;
+  padding-top: 30px
 
 
 
  }
 
 .harry {
-  display: flex;
-  flex-direction: column;
+  line-height: 0.5;
   font-size: 70pt;
   font-weight:bold;
-  align-items: center; 
+  
 }
