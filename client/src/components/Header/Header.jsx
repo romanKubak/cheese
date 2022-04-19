@@ -56,7 +56,7 @@ export default function Header() {
 
 
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{backgroundColor:'rgba(25, 25, 25, 1)'}}>
+      <AppBar position="static" style={{backgroundColor:'rgba(25, 25, 25, 1)', boxShadow: 'none'}}>
         <Toolbar className={styles.Toolbar}>
           <Box
             sx={{
