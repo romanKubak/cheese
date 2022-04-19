@@ -4,6 +4,7 @@ import {useParams, Link} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react';
 import TestForm from '../TestForm/TestForm';
+import { Rate } from 'antd';
 
 import styles from './style.module.css'
 import MyOneProduct from '../MyOneProduct/MyOneProduct'
@@ -128,6 +129,8 @@ function Profile() {
 
           <div className={styles.profile_info}>
             <h4>{user.name}</h4>
+            <h4>Рейтинг: {user.rating}<Rate allowHalf disabled value={Number(user.rating)} /></h4>
+
             <img src={process.env.REACT_APP_API_URL + 'boxIronMan.jpg'} className={styles.profile_img} alt="..."/>
           </div>
           <div className={styles.profile_btn}>
