@@ -4,6 +4,7 @@ import {useParams, Link} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react';
 import TestForm from '../TestForm/TestForm';
+import { Rate } from 'antd';
 
 import styles from './style.module.css'
 import MyOneProduct from '../MyOneProduct/MyOneProduct'
