@@ -7,6 +7,6 @@ module.exports = class UserDto {
     this.email = model.email;
     this.id = model.id
     this.name = model.name
-    
+    this.rating = model.rating
   }
 }

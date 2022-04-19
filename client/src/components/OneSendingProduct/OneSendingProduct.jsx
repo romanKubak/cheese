@@ -5,15 +5,19 @@ export default function OneSendingProduct({product}) {
 
   return (
     <div className={styles.main_box}>
-    <div className="card" style={{width: '18rem'}}>
+    <div className={styles.profile_card} style={{width: '18rem'}}>
       <img src={process.env.REACT_APP_API_URL + product.img} className={styles.card_img_top} alt="..."/>
-      <div className="card-body">
-        <h5 className="card-title">{product.name}</h5>
-        <p className={styles.card_text}>{product.description}</p>
-      </div>
-      <ul className="list-group list-group-flush">
-        <li className="list-group-item">{product.price}</li>
-      </ul>
+        <div className={styles.box_description}>
+          <div className={styles.card_body}>
+            <h6 className={styles.card_title}>{product.name}</h6>
+          </div>
+          <div className={styles.price_card}>
+            <h6>{product.price}</h6>
+          </div>
+        </div>
+        <div>
+              
+        </div>
     </div>
   </div>
   )
