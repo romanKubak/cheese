@@ -18,6 +18,8 @@ import {ratingReducer} from './ratingReducer'
 import {sellerReducer} from './sellerReducer'
 import {doneSendingReducer} from './doneSendingReducer'
 import {doneReceiptReducer} from './doneReceiptReducer'
+import {showFromReducer} from './showFromReducer'
+import {showFormREGReducer} from './showFormREGReducer'
 
 export const rootReducer = combineReducers({
   user: userReducer,
@@ -35,4 +37,6 @@ export const rootReducer = combineReducers({
   seller: sellerReducer,
   doneSending: doneSendingReducer,
   receiptProducts: doneReceiptReducer,
+  showForm: showFromReducer,
+  showFormREG: showFormREGReducer,
 });

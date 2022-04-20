@@ -4,12 +4,28 @@ import styles from './style.module.css'
 import {style} from './style.js'
 import { useNavigate } from 'react-router-dom'
 
+import SignIn from '../SignIn/SignIn';
+import SignUp from '../SignUp/SignUp';
+
+import {showFormDisp, showFormDispREG} from '../../redux/actions/showFormAC.js'
+
+import { useDispatch, useSelector } from 'react-redux';
+
 export default function HelloPage() {
   const navigate = useNavigate()
+  const dispatch = useDispatch();
   const redir = () => { 
     navigate(`/main`)
   }
-  console.log(style);
+  const user = useSelector(state => state.user)
+  const showForm = useSelector(state => state.showForm)
+  const showFormREG = useSelector(state => state.showFormREG)
+
+  const showFormFunc = () => {
+    dispatch(showFormDisp(!showForm))
+    dispatch(showFormDispREG(false))
+  };
+
   return (
     <div >
     <div className={styles.container}>
@@ -23,7 +39,15 @@ export default function HelloPage() {
         <p style={{color: 'rgba(243, 243, 243, 1)', paddingLeft: '228px'}}>STAR WARS</p>
         </div>
         <div style={{paddingRight:'80px'}}>
-          <img src = {process.env.REACT_APP_API_URL + 'photo_2022-04-18_21-23-11.jpg'} style={{width:'575px', height:'300px',paddingTop:'5px', marginTop:'20px'}}></img>
+          {showForm || showFormREG
+            ? (showForm ?<SignIn /> : null || showFormREG ? <SignUp /> : null)
+            : <img src = {process.env.REACT_APP_API_URL + 'photo_2022-04-18_21-23-11.jpg'} style={{width:'575px', height:'300px',paddingTop:'5px', marginTop:'20px'}} alt='...'></img>
+          }
+          {/* {!showFormREG
+            ? null
+            : <SignUp />
+          } */}
+          {/* <button onClick={() => showFormFunc()}>ShowForm</button> */}
         </div>
         </div>
       <div className={styles.harry}>
@@ -34,8 +58,11 @@ export default function HelloPage() {
       ДРУГОЕ
       </p>
         </div>
-    
-      <Button style={style} variant="contained" onClick={() => redir()}>Перейти к покупкам</Button>
+          {user.email
+            ? <Button style={style} variant="contained" onClick={() => redir()}>Перейти к покупкам</Button>
+            : <Button style={style} variant="contained" onClick={() => showFormFunc()}>Чтоб продолжить войдите</Button>
+          }
+      
     </div>
   )
 }

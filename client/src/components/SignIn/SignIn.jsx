@@ -6,6 +6,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logUser } from '../../redux/actions/userAC';
 import styles from './style.module.css'
 
+import {showFormDisp, showFormDispREG} from '../../redux/actions/showFormAC.js'
+import Button2 from '@mui/material/Button';
+
 export default function SignIn() {
 
   const dispatch = useDispatch();
@@ -19,6 +22,8 @@ export default function SignIn() {
 
   const onFinish = (values) => {
     dispatch(logUser(values))
+    dispatch(showFormDispREG(false))
+    dispatch(showFormDisp(false))
   }
 
   return (
@@ -65,16 +70,17 @@ export default function SignIn() {
               span: 16,
             }}
           >
-            <Button type="primary" htmlType="submit"> Войти </Button>
+            {/* <Button type="primary" htmlType="submit"> Войти </Button> */}
+            <Button2 variant="contained" className={styles.btn_signIN} type="primary" htmlType="submit">ВОЙТИ</Button2>
           </Form.Item>
-          <h6>
+          {/* <h6>
             у вас нет аккаунта? 
           <Link to='/signup'> Зарегистрироваться</Link>
-          </h6>
+          </h6> */}
           <div>
             {
               error.length 
-              ? <h4>{error}</h4> 
+              ? <h6>{error}</h6> 
               : null
             }
           </div>

@@ -15,7 +15,10 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import { useNavigate } from 'react-router-dom'
 import { logoutUser } from '../../redux/actions/userAC';
-
+//!delete this ------------------------
+import {showFormDisp, showFormDispREG} from '../../redux/actions/showFormAC.js'
+import Button from '@mui/material/Button';
+//!====================================
 //? корзина со счетчиком------------------------------------------------------------------------------
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
@@ -42,14 +45,25 @@ export default function Header() {
 
   const logout = async () => {
     dispatch(logoutUser())
-    navigate('/main')
+    navigate('/')
   }
+  const showForm = useSelector(state => state.showForm)
+  const showFormREG = useSelector(state => state.showFormREG) 
+  
+  const showFormFunc = () => {
+    dispatch(showFormDisp(!showForm))
+    dispatch(showFormDispREG(false))
+  };
+  const showFormFuncREG = () => {
+    dispatch(showFormDispREG(!showFormREG))
+    dispatch(showFormDisp(false))
+  };
 
   const profile = () => {
     navigate(`/profile/${user.id}`)
   }
   const redir = () => { 
-    navigate(`/main`)
+    navigate(`/`)
   }
 
   return (
@@ -97,8 +111,20 @@ export default function Header() {
             )
             :
             (<>
-              <Link to='/signup' type='button' style={{ marginRight: '20px' }} className={styles.btn_header}>Регистрация</Link>
-              <Link to='/signin' type='button' style={{marginRight: '76px'}} className={styles.btn_header}>Войти</Link>
+              {!showForm
+                ? (!showFormREG 
+                  ? <Button variant="contained" className={styles.btn_signIN} onClick={() => showFormFunc()}>ВОЙТИ</Button>
+                  : <Button variant="contained" className={styles.btn_signIN_noREG} onClick={() => showFormFunc()}>ВОЙТИ</Button>
+                  // : null
+                  )
+                : null
+                }
+              {!showFormREG
+                ? <Button variant="contained" className={styles.btn_registration} onClick={() => showFormFuncREG()}>Регистрация</Button>
+                : null
+              }
+              {/* <Link to='/signup' type='button' style={{ marginRight: '20px' }} className={styles.btn_header}>Регистрация</Link> */}
+              {/* <Link to='/signin' type='button' style={{marginRight: '76px'}} className={styles.btn_header}>Войти</Link> */}
             </>)
           }
           </div>

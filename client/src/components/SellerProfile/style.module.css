@@ -45,3 +45,24 @@
   height: 41px !important;
   /* margin-right: 20px !important; */
 }
+
+.navigation{
+  align-self: start;
+  color: rgba(114, 114, 114, 1);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  /* margin-right: 100px;
+  margin-left: 100px; */
+  display: flex;
+  margin-left: 100px;
+}
+.link{
+  color: rgba(114, 114, 114, 1) !important;
+  /* color: rgb(249, 0, 0) !important; */
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+  text-decoration: none !important;
+}
+.link:hover{
+  color: rgb(190, 190, 190) !important;
+}

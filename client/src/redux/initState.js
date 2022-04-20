@@ -14,4 +14,6 @@ export const initState = {
   receiptProducts: [],
   rating: 0,
   seller : {},
+  showForm: false,
+  showFormREG: false,
 };
