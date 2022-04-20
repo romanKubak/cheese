@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import {Link, useNavigate, useParams} from 'react-router-dom'
 import { allMyProducts } from '../../redux/actions/productAc'
 import FormComment from '../FormComment/FormComment'
 import SellerProduct from '../SellerProduct/SellerProduct'
@@ -10,12 +10,15 @@ import { Rate } from 'antd';
 import Button from '@mui/material/Button';
 
 import styles from './style.module.css'
+// import { Link } from '@mui/material'
 
 export default function SellerProfile() {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const {id} = useParams()
   const rating = useSelector(state => state.rating)
   const sellerName = useSelector(state => state.seller.name)
+  // const sellerName = useSelector(state => state.seller.name)
   const [form, setForm] = useState(false );
   const user = useSelector(state => state.user)
   console.log(Number(rating))
@@ -37,7 +40,12 @@ export default function SellerProfile() {
   },[id, dispatch])
   return (
     <>
+      <div className={styles.navigation}>
+          \ <Link to='/main' className={styles.link}>  ГЛАВНАЯ  </Link>
+          \ <Link to='' className={styles.link} onClick={() => navigate(-1)}>  НАЗАД  </Link>
+        </div> 
       <div className={styles.seller_container}>
+
         <div className={styles.seller_profile_info}>
         <img src={process.env.REACT_APP_API_URL + 'boxIronMan.jpg'} className={styles.profile_img} alt="..."/>
         <h6>{sellerName}</h6>

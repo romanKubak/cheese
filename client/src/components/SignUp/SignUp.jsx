@@ -7,6 +7,8 @@ import styles from './style.module.css';
 import { regUser } from '../../redux/actions/userAC';
 
 import { Form, Input, Button,  } from 'antd';
+import {showFormDisp, showFormDispREG} from '../../redux/actions/showFormAC.js'
+import Button2 from '@mui/material/Button';
 
 export default function Login() {
 
@@ -20,6 +22,8 @@ export default function Login() {
 
   const onFinish =  (values) => {
     dispatch(regUser(values))
+    dispatch(showFormDisp(false))
+    dispatch(showFormDispREG(false))
   }
 
   return (
@@ -79,16 +83,17 @@ export default function Login() {
             span: 16,
           }}
         >
-          <Button type="primary" htmlType="submit"> Submit </Button>
+          {/* <Button type="primary" htmlType="submit"> Submit </Button> */}
+          <Button2 variant="contained" className={styles.btn_registration} type="primary" htmlType="submit" >Регистрация</Button2>
         </Form.Item>
-        <h6>
+        {/* <h6>
           уже есть аккаунт?  
         <Link to='/signin'> Войти</Link>
-        </h6>
+        </h6> */}
         <div>
           {
             error.length 
-              ? <h4>{error}</h4> 
+              ? <h6>{error}</h6> 
               : null
           }
         </div>
