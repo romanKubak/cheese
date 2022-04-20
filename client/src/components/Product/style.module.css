@@ -4,7 +4,8 @@
   width: 350px;
   height: 550px;
   background-color: rgba(243, 243, 243, 1);
-  border: none
+  border: none;
+  margin-bottom: 30px;
 }
 .card{
   width: 440px;

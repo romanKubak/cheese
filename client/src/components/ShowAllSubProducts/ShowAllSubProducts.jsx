@@ -21,6 +21,7 @@ export default function ShowAllSubProducts() {
   const userID = useSelector(state => state.user.id)
   const allCategory = useSelector(state => state.categories)
   const allSubCategory = useSelector(state => state.sub)
+console.log(product);
 
   useEffect(() => {
     dispatch(showAllSubProducts(id))

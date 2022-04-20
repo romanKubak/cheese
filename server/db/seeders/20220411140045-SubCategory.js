@@ -33,6 +33,20 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
+          title: 'Автографы',
+          img: 'no_img.jpeg',
+          category_id: 1,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          title: 'Атрибутика',
+          img: 'no_img.jpeg',
+          category_id: 1,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
           title: 'Статуэтки',
           img: 'no_img.jpeg',
           category_id: 2,
