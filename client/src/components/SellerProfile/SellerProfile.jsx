@@ -18,6 +18,7 @@ export default function SellerProfile() {
   const {id} = useParams()
   const rating = useSelector(state => state.rating)
   const sellerName = useSelector(state => state.seller.name)
+  const sellerImg = useSelector(state => state.seller.img)
   // const sellerName = useSelector(state => state.seller.name)
   const [form, setForm] = useState(false );
   const user = useSelector(state => state.user)
@@ -47,7 +48,7 @@ export default function SellerProfile() {
       <div className={styles.seller_container}>
 
         <div className={styles.seller_profile_info}>
-        <img src={process.env.REACT_APP_API_URL + 'boxIronMan.jpg'} className={styles.profile_img} alt="..."/>
+        <img src={process.env.REACT_APP_API_URL + sellerImg} className={styles.profile_img} alt="..."/>
         <h6>{sellerName}</h6>
         <h4>Рейтинг: {rating}<Rate allowHalf disabled value={Number(rating)} /></h4>
         <h3>Комментарии</h3>

@@ -39,7 +39,7 @@ export default function FormComment({setForm}) {
       <Form.Item
         label="Отзыв"
         name="title"
-        rules={[{ required: true, message: 'Please input your comment!' }]}
+        rules={[{ required: true, message: 'Пожалуйста напишите комментарий' }]}
         style={{color: 'white'}}
       >
         <Input />
@@ -57,7 +57,7 @@ export default function FormComment({setForm}) {
 
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
         <Button type="primary" htmlType="submit">
-          Submit
+          ОТПРАВИТЬ
         </Button>
       </Form.Item>
     </Form>

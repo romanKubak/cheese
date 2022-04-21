@@ -14,6 +14,7 @@ import { UploadOutlined } from '@ant-design/icons';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
+import CloseIcon from '@mui/icons-material/Close';
 
 const style = {
   position: 'absolute',
@@ -115,9 +116,7 @@ export default function MyOneProduct({product}) {
       >
         <Fade in={open}>
           <Box sx={style}>
-                <button type="secondary" htmlType="submit" className={styles.btn_submit_formADDProduct} onClick={handleClose} >
-                  x
-                </button>
+          <CloseIcon onClick={handleClose} style={{cursor: 'pointer'}}></CloseIcon>
           <Form
                 name="validate_other"
                 {...formItemLayout}

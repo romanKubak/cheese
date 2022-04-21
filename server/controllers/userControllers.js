@@ -93,7 +93,7 @@ try {
 const commentUser = async (req, res, next) => {
 try {
   const comments = await Comment.findAll({where:{user_id:req.params.id}})
-  const user = await User.findOne({where: {id:req.params.id}, attributes:['name','rating']})
+  const user = await User.findOne({where: {id:req.params.id}, attributes:['name','rating', 'img']})
   res.json({comments,user})
 } catch (error) {
   console.log(error);

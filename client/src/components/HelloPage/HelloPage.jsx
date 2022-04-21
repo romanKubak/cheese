@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Button from '@mui/material/Button';
 import styles from './style.module.css'
 import {style} from './style.js'
@@ -10,6 +10,7 @@ import SignUp from '../SignUp/SignUp';
 import {showFormDisp, showFormDispREG} from '../../redux/actions/showFormAC.js'
 
 import { useDispatch, useSelector } from 'react-redux';
+import {getCart} from '../../redux/actions/cartAC'
 
 export default function HelloPage() {
   const navigate = useNavigate()
@@ -21,9 +22,15 @@ export default function HelloPage() {
   const showForm = useSelector(state => state.showForm)
   const showFormREG = useSelector(state => state.showFormREG)
 
+  useEffect(() => {
+    if(user.id){
+      dispatch(getCart(user.id)) 
+    }
+  },[dispatch, user.id])
+  
   const showFormFunc = () => {
-    dispatch(showFormDisp(!showForm))
-    dispatch(showFormDispREG(false))
+    dispatch(showFormDispREG(!showForm))
+    dispatch(showFormDisp(false))
   };
 
   return (
@@ -60,7 +67,7 @@ export default function HelloPage() {
         </div>
           {user.email
             ? <Button style={style} variant="contained" onClick={() => redir()}>Перейти к покупкам</Button>
-            : <Button style={style} variant="contained" onClick={() => showFormFunc()}>Чтоб продолжить войдите</Button>
+            : <Button style={style} variant="contained" onClick={() => showFormFunc()}>для продолжения зарегистрируйтесь</Button>
           }
       
     </div>

@@ -34,6 +34,18 @@ export const setUser = (data) => {
   return {type: 'SET_USER', payload: data}
 }
 
+export const updateProfilePhoto = (formData) => async (dispatch) => {
+  axios.post('http://localhost:3001/api/updateImgProfile', formData, {
+    withCredentials: true,
+  })
+    .then((updatedUser) => {
+      dispatch(getUpdatePhoto(updatedUser.data));
+    })
+}
+
+export const getUpdatePhoto = (updatedUser) => {
+  return {type: 'UPDATE_PHOTO', payload: updatedUser}
+}
 
 export const setError = (error) => {
   return {type: 'SET_ERROR', payload: error}
