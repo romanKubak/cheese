@@ -8,5 +8,6 @@ module.exports = class UserDto {
     this.id = model.id
     this.name = model.name
     this.rating = model.rating
+    this.img = model.img
   }
 }

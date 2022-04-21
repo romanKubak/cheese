@@ -39,7 +39,7 @@ export default function Login() {
         autoComplete="off"
       >
         <Form.Item
-          label="Username"
+          label="Ваше имя"
           name="name"
           rules={[
             {
@@ -65,7 +65,7 @@ export default function Login() {
         </Form.Item>
       
         <Form.Item
-          label="Password"
+          label="Пароль"
           name="password"
           rules={[
             {

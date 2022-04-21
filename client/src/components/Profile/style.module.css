@@ -53,6 +53,13 @@
   justify-content: center;
   margin-top: 81px;
 }
+.profile_btn_modal{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 10px;
+}
 
 .profile_info{
   display: flex;
@@ -84,10 +91,28 @@
 .btn_addProduct{
   background-color: rgba(183, 60, 55, 1) !important;
   margin-bottom: 10px !important;
-  /* margin-right: 20px !important; */
   width: 200px !important;
   height: 41px !important;
-  /* margin-right: 20px !important; */
+}
+.btn_addPhoto_Modal{
+  background-color: rgb(88, 88, 88) !important;
+  margin-bottom: 10px !important;
+  width: 200px !important;
+  height: 41px !important;
+}
+.btn_addPhoto{
+  background-color: rgba(183, 60, 55, 1) !important;
+  margin-top: 10px !important;
+  color: white !important;
+  width: 200px !important;
+  height: 41px !important;
+}
+.btn_addPhoto2{
+  background-color: rgba(183, 60, 55, 1) !important;
+  margin-top: 30px !important;
+  color: white !important;
+  width: 200px !important;
+  height: 41px !important;
 }
 .btn_mySales{
   background-color: rgba(183, 60, 55, 1) !important;
@@ -101,4 +126,20 @@
 .accardions_box{
   display: flex;
   flex-direction: column;
+}
+
+.photo_user_Box{
+  margin-left: 69px;
+}
+
+.photo_user_Box img{
+  width: 200px;
+  height: 200px;
+}
+
+.formBOX{
+  background-color: violet !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
