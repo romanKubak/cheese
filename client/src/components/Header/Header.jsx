@@ -1,5 +1,4 @@
 
-import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './styles.module.css'
 
@@ -101,10 +100,6 @@ export default function Header() {
                   </StyledBadge>
                 </IconButton>
 
-                {/* <ShoppingCartIcon type='button' style={{ marginRight: '20px',marginLeft: '20px' }} onClick={() => navigate(`/cart/${user.id}`)} /> */}
-
-
-
                 <PersonIcon type='button' style={{ marginLeft: '20px', marginRight: '20px' }} onClick={() => profile()} />
                 <LogoutIcon type='button' onClick={() => logout()} />
               </div>
@@ -115,16 +110,14 @@ export default function Header() {
                 ? (!showFormREG 
                   ? <Button variant="contained" className={styles.btn_signIN} onClick={() => showFormFunc()}>ВОЙТИ</Button>
                   : <Button variant="contained" className={styles.btn_signIN_noREG} onClick={() => showFormFunc()}>ВОЙТИ</Button>
-                  // : null
                   )
                 : null
-                }
+              }
+
               {!showFormREG
                 ? <Button variant="contained" className={styles.btn_registration} onClick={() => showFormFuncREG()}>Регистрация</Button>
                 : null
               }
-              {/* <Link to='/signup' type='button' style={{ marginRight: '20px' }} className={styles.btn_header}>Регистрация</Link> */}
-              {/* <Link to='/signin' type='button' style={{marginRight: '76px'}} className={styles.btn_header}>Войти</Link> */}
             </>)
           }
           </div>
